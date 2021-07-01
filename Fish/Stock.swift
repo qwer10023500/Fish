@@ -93,7 +93,7 @@ extension Stock {
             } else {
                 symbol = "-"
             }
-            stock = Stock(id, mode: .other, name: list[0], price: list[3], fluctuation: String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0))
+            stock = Stock(id, mode: .other, name: list[0], price: current == 0 ? list[2] : list[3], fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0))
             return stock
         }
     }

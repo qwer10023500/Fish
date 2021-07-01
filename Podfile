@@ -13,6 +13,8 @@ target 'Fish' do
   pod 'RxSwift' # Reactive
   pod 'RxCocoa' # Reactive
   pod 'NSObject+Rx' # Reactive
+  
+  pod 'MJRefresh' #Refresh
 end
 
 post_install do |installer|

@@ -10,8 +10,11 @@ import RxSwift
 import RxCocoa
 import NSObject_Rx
 import Alamofire
+import MJRefresh
 
 class ViewController: UITableViewController {
+    
+    fileprivate var disposeBag = DisposeBag()
     
     fileprivate lazy var session: Session = {
         let session = Session.default
@@ -39,6 +42,13 @@ class ViewController: UITableViewController {
         tableView.rowHeight = 50
         tableView.separatorStyle = .singleLineEtched
         tableView.register(StockViewCell.self, forCellReuseIdentifier: NSStringFromClass(StockViewCell.classForCoder()))
+        
+        MJRefreshNormalHeader { [weak self] in
+            guard let `self` = self else { return }
+            self.disposeBag = DisposeBag()
+            self.realTime()
+        }.autoChangeTransparency(true)
+        .link(to: tableView)
         
         NotificationCenter.default.addObserver(forName: UIApplication.willEnterForegroundNotification, object: nil, queue: OperationQueue.main) { [weak self] notification in
             guard let `self` = self else { return }
@@ -171,7 +181,7 @@ extension ViewController {
                 Observable.just(()).delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
                     guard let `self` = self else { return }
                     self.realTime()
-                }).disposed(by: self.rx.disposeBag)
+                }).disposed(by: self.disposeBag)
             })
     }
 }
