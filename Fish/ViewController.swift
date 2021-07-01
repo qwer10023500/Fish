@@ -21,6 +21,12 @@ class ViewController: UITableViewController {
         return session
     }()
     
+    fileprivate lazy var dateFormatter: DateFormatter = {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "HH:mm"
+        return dateFormatter
+    }()
+    
     /** stocks */
     fileprivate var stocks: [Stock] {
         set {
@@ -92,6 +98,15 @@ class ViewController: UITableViewController {
     }
 }
 
+extension ViewController {
+    /** transaction */
+    fileprivate func isTransactionTime(start: String, end: String) -> Bool {
+        let string = dateFormatter.string(from: Date())
+        guard let start = dateFormatter.date(from: start), let end = dateFormatter.date(from: end), let today = dateFormatter.date(from: string) else { return false }
+        return today.compare(start) == .orderedDescending && today.compare(end) == .orderedAscending
+    }
+}
+
 // MARK: UITableViewDataSource
 extension ViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -148,6 +163,7 @@ extension ViewController {
         guard let url = URL(string: "https://hq.sinajs.cn/list=\(ids.joined(separator: ","))") else { return }
         session.request(url, method: .get)
             .responseData(completionHandler: { response in
+                self.tableView.mj_header?.endRefreshing()
                 switch response.result {
                 case .success(let data):
                     let cfEncoding = CFStringEncodings.GB_18030_2000
@@ -171,13 +187,7 @@ extension ViewController {
                     print(url, error)
                 }
                 guard UIApplication.shared.applicationState == .active else { return }
-                let components = Calendar.current.dateComponents([.hour, .minute, .weekday], from: Date())
-                guard let hour = components.hour, let minute = components.minute, let weekday = components.weekday else { return }
-                let amstart = hour >= 9 && minute >= 30
-                let amend = hour <= 11 && minute <= 30
-                let pmstart = hour >= 13 && minute >= 0
-                let pmend = hour <= 15 && minute <= 0
-                guard ((amstart && amend) || (pmstart && pmend)) && weekday != 7 && weekday != 1 else { return }
+                guard self.isTransactionTime(start: "09:30", end: "11:30") || self.isTransactionTime(start: "13:00", end: "15:00") else { return }
                 Observable.just(()).delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
                     guard let `self` = self else { return }
                     self.realTime()
