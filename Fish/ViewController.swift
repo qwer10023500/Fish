@@ -122,6 +122,13 @@ extension ViewController {
 
 // MARK: UITableViewDelegate
 extension ViewController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        controller.stock = stocks[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
         let delete = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
             var stocks = self.stocks
