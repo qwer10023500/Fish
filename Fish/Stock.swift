@@ -32,7 +32,20 @@ class Stock: NSObject, NSCoding {
     /** point */
     var point: String = String()
     
-    convenience init(_ id: String, mode: Stock.Mode = .other, name: String = String(), price: String = String(), fluctuation: String = String(), point: String = String()) {
+    /** max */
+    var max: String = String()
+    
+    /** min */
+    var min: String = String()
+    
+    convenience init(_ id: String,
+                     mode: Stock.Mode = .other,
+                     name: String = String(),
+                     price: String = String(),
+                     fluctuation: String = String(),
+                     point: String = String(),
+                     max: String = String(),
+                     min: String = String()) {
         self.init()
         self.id = id
         self.mode = mode
@@ -40,6 +53,8 @@ class Stock: NSObject, NSCoding {
         self.price = price
         self.fluctuation = fluctuation
         self.point = point
+        self.max = max
+        self.min = min
     }
     
     override init() { super.init() }
@@ -52,6 +67,8 @@ class Stock: NSObject, NSCoding {
         price = coder.decodeObject(forKey: "price") as? String ?? String()
         fluctuation = coder.decodeObject(forKey: "fluctuation") as? String ?? String()
         point = coder.decodeObject(forKey: "point") as? String ?? String()
+        max = coder.decodeObject(forKey: "max") as? String ?? String()
+        min = coder.decodeObject(forKey: "min") as? String ?? String()
     }
     
     func encode(with coder: NSCoder) {
@@ -61,6 +78,8 @@ class Stock: NSObject, NSCoding {
         coder.encode(price, forKey: "price")
         coder.encode(fluctuation, forKey: "fluctuation")
         coder.encode(point, forKey: "point")
+        coder.encode(max, forKey: "max")
+        coder.encode(min, forKey: "min")
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -83,7 +102,7 @@ extension Stock {
             return stock
         } else {
             let list = array[1].components(separatedBy: ",")
-            guard list.count >= 4 else { return stock }
+            guard list.count >= 6 else { return stock }
             let yesterday: Double = NSString(string: list[2]).doubleValue
             let current: Double = NSString(string: list[3]).doubleValue
             let difference = abs(current - yesterday)
@@ -93,8 +112,25 @@ extension Stock {
             } else {
                 symbol = "-"
             }
-            stock = Stock(id, mode: .other, name: list[0], price: current == 0 ? list[2] : list[3], fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0))
+            stock = Stock(id,
+                          mode: .other,
+                          name: list[0],
+                          price: current == 0 ? list[2] : list[3],
+                          fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0),
+                          max: list[4],
+                          min: list[5])
             return stock
         }
+    }
+    
+    /** assignment */
+    public func assignment(_ new: Stock) {
+        mode = new.mode
+        name = new.name
+        price = new.price
+        fluctuation = new.fluctuation
+        point = new.point
+        max = new.max
+        min = new.min
     }
 }

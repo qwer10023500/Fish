@@ -45,7 +45,6 @@ class ViewController: UITableViewController {
         
         realTime()
         
-        tableView.rowHeight = 50
         tableView.separatorStyle = .singleLineEtched
         tableView.register(StockViewCell.self, forCellReuseIdentifier: NSStringFromClass(StockViewCell.classForCoder()))
         
@@ -138,6 +137,10 @@ extension ViewController {
         }
         return [delete]
     }
+    
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return stocks[indexPath.row].mode == .index ? 50 : 60
+    }
 }
 
 // MARK: Network
@@ -181,11 +184,7 @@ extension ViewController {
                         let stocks = self.stocks
                         for item in stocks {
                             guard item == stock else { continue }
-                            item.mode = stock.mode
-                            item.name = stock.name
-                            item.price = stock.price
-                            item.fluctuation = stock.fluctuation
-                            item.point = stock.point
+                            item.assignment(stock)
                         }
                         self.stocks = stocks
                     }

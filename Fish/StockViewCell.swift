@@ -13,25 +13,31 @@ class StockViewCell: UITableViewCell {
         didSet {
             guard let `stock` = stock else { return }
             
-            textLabel?.textColor = UIColor.black.withAlphaComponent(0.7)
+            detailTextLabel?.textColor = UIColor.black.withAlphaComponent(0.7)
             switch stock.mode {
             case .other:
                 textLabel?.text = String(format: "%@  %@  %@", stock.name, stock.price, stock.fluctuation)
+                detailTextLabel?.text = String(format: "max: %@ min: %@", stock.max, stock.min)
             case .index:
                 textLabel?.text = String(format: "%@  %@  %@  %@", stock.name, stock.price, stock.point, stock.fluctuation)
+                detailTextLabel?.text = nil
             }
         }
     }
     
     override init(style: UITableViewCell.CellStyle, reuseIdentifier: String?) {
-        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        super.init(style: .subtitle, reuseIdentifier: reuseIdentifier)
         
         selectionStyle = .none
+        
+        textLabel?.textColor = UIColor.black.withAlphaComponent(0.7)
     }
     
     required init?(coder: NSCoder) {
         super.init(coder: coder)
         
         selectionStyle = .none
+        
+        textLabel?.textColor = UIColor.black.withAlphaComponent(0.7)
     }
 }
