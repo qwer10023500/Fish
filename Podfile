@@ -10,8 +10,6 @@ target 'Fish' do
   
   pod 'Alamofire' # Network
   
-  pod 'Kingfisher' # image
-  
   pod 'RxSwift' # Reactive
   pod 'RxCocoa' # Reactive
   pod 'NSObject+Rx' # Reactive

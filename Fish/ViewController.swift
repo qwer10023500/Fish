@@ -179,15 +179,13 @@ extension ViewController {
                     let cfEncoding = CFStringEncodings.GB_18030_2000
                     let encoding = CFStringConvertEncodingToNSStringEncoding(CFStringEncoding(cfEncoding.rawValue))
                     guard let value = NSString(data: data, encoding: encoding) else { return }
+                    var stocks = [Stock]()
                     for item in value.components(separatedBy: "\n") {
+                        guard item.count != 0 else { continue }
                         let stock = Stock.parsing(value: item)
-                        let stocks = self.stocks
-                        for item in stocks {
-                            guard item == stock else { continue }
-                            item.assignment(stock)
-                        }
-                        self.stocks = stocks
+                        stocks.append(stock)
                     }
+                    self.stocks = stocks
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(url, error)

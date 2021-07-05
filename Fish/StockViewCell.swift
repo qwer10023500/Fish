@@ -17,7 +17,7 @@ class StockViewCell: UITableViewCell {
             switch stock.mode {
             case .other:
                 textLabel?.text = String(format: "%@  %@  %@", stock.name, stock.price, stock.fluctuation)
-                detailTextLabel?.text = String(format: "max: %@ min: %@", stock.max, stock.min)
+                detailTextLabel?.text = String(format: "今开: %@ 最高: %@ 最低: %@", stock.start, stock.max, stock.min)
             case .index:
                 textLabel?.text = String(format: "%@  %@  %@  %@", stock.name, stock.price, stock.point, stock.fluctuation)
                 detailTextLabel?.text = nil

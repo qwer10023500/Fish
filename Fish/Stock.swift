@@ -38,6 +38,9 @@ class Stock: NSObject, NSCoding {
     /** min */
     var min: String = String()
     
+    /** start */
+    var start: String = String()
+    
     convenience init(_ id: String,
                      mode: Stock.Mode = .other,
                      name: String = String(),
@@ -45,7 +48,8 @@ class Stock: NSObject, NSCoding {
                      fluctuation: String = String(),
                      point: String = String(),
                      max: String = String(),
-                     min: String = String()) {
+                     min: String = String(),
+                     start: String = String()) {
         self.init()
         self.id = id
         self.mode = mode
@@ -55,6 +59,7 @@ class Stock: NSObject, NSCoding {
         self.point = point
         self.max = max
         self.min = min
+        self.start = start
     }
     
     override init() { super.init() }
@@ -69,6 +74,7 @@ class Stock: NSObject, NSCoding {
         point = coder.decodeObject(forKey: "point") as? String ?? String()
         max = coder.decodeObject(forKey: "max") as? String ?? String()
         min = coder.decodeObject(forKey: "min") as? String ?? String()
+        start = coder.decodeObject(forKey: "start") as? String ?? String()
     }
     
     func encode(with coder: NSCoder) {
@@ -80,6 +86,7 @@ class Stock: NSObject, NSCoding {
         coder.encode(point, forKey: "point")
         coder.encode(max, forKey: "max")
         coder.encode(min, forKey: "min")
+        coder.encode(start, forKey: "start")
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -118,7 +125,8 @@ extension Stock {
                           price: current == 0 ? list[2] : list[3],
                           fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0),
                           max: list[4],
-                          min: list[5])
+                          min: list[5],
+                          start: list[1])
             return stock
         }
     }
@@ -132,5 +140,6 @@ extension Stock {
         point = new.point
         max = new.max
         min = new.min
+        start = new.start
     }
 }
