@@ -12,9 +12,42 @@ import NSObject_Rx
 import Alamofire
 import MJRefresh
 
-class ViewController: UITableViewController {
+class IndexViewCell: UICollectionViewCell {
+    @IBOutlet weak var nameView: UILabel!
+    @IBOutlet weak var pointView: UILabel!
+    @IBOutlet weak var fluctuationView: UILabel!
+    @IBOutlet weak var percentageView: UILabel!
+    
+    public var stock: Stock? {
+        didSet {
+            guard let stock = `stock` else { return }
+            
+            nameView.text = stock.name
+            
+            pointView.text = stock.price
+            
+            fluctuationView.text = stock.point
+            
+            percentageView.text = stock.fluctuation
+            
+            for view in contentView.subviews {
+                guard let label = view as? UILabel else { continue }
+                if stock.point.contains("-") {
+                    label.textColor = UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1)
+                } else {
+                    label.textColor = UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
+                }
+            }
+        }
+    }
+}
+
+class ViewController: UIViewController {
     
     fileprivate var disposeBag = DisposeBag()
+    
+    @IBOutlet weak var collectionView: UICollectionView!
+    @IBOutlet weak var tableView: UITableView!
     
     fileprivate lazy var session: Session = {
         let session = Session.default
@@ -38,12 +71,24 @@ class ViewController: UITableViewController {
         }
     }
     
+    /** indexs */
+    fileprivate var indexs: [Stock] {
+        get {
+            return stocks.filter { stock in return stock.mode == .index }
+        }
+    }
+    
+    /** tickets */
+    fileprivate var tickets: [Stock] {
+        get {
+            return stocks.filter { stock in return stock.mode == .other }
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if stocks.count == 0 { stocks = [Stock("s_sh000001"), Stock("s_sz399001"), Stock("s_sz399006")] }
-        
-        realTime()
         
         tableView.separatorStyle = .singleLineEtched
         tableView.register(StockViewCell.self, forCellReuseIdentifier: NSStringFromClass(StockViewCell.classForCoder()))
@@ -59,6 +104,8 @@ class ViewController: UITableViewController {
             guard let `self` = self else { return }
             self.realTime()
         }
+        
+        realTime()
     }
     
     @IBAction func addAction(_ sender: UIBarButtonItem) {
@@ -110,50 +157,72 @@ extension ViewController {
     }
 }
 
-// MARK: UITableViewDataSource
-extension ViewController {
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return stocks.count
+// MARK: UICollectionViewDataSource
+extension ViewController: UICollectionViewDataSource {
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return indexs.count
     }
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(StockViewCell.classForCoder()), for: indexPath) as! StockViewCell
-        cell.stock = stocks[indexPath.row]
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "IndexViewCell", for: indexPath) as! IndexViewCell
+        cell.stock = indexs[indexPath.item]
         return cell
     }
 }
 
-// MARK: UITableViewDelegate
-extension ViewController {
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+// MARK: UICollectionViewDelegateFlowLayout
+extension ViewController: UICollectionViewDelegateFlowLayout {
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: collectionView.bounds.height, height: collectionView.bounds.height)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let controller = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
-        controller.stock = stocks[indexPath.row]
+        controller.stock = indexs[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
-    
-    override func tableView(_ tableView: UITableView, editActionsForRowAt indexPath: IndexPath) -> [UITableViewRowAction]? {
-        let delete = UITableViewRowAction(style: .default, title: "Delete") { _, _ in
-            var stocks = self.stocks
-            stocks.remove(at: indexPath.row)
-            self.stocks = stocks
-            tableView.reloadData()
-        }
-        return [delete]
+}
+
+// MARK: UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return tickets.count
     }
     
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return stocks[indexPath.row].mode == .index ? 50 : 60
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: NSStringFromClass(StockViewCell.classForCoder()), for: indexPath) as! StockViewCell
+        cell.stock = tickets[indexPath.row]
+        return cell
     }
     
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+    func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
         return true
     }
     
-    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
-        var stocks = self.stocks
-        stocks.swapAt(sourceIndexPath.row, destinationIndexPath.row)
-        self.stocks = stocks
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        guard editingStyle == .delete else { return }
+        var array = tickets
+        array.remove(at: indexPath.row)
+        stocks = indexs + array
+        tableView.deleteRows(at: [indexPath], with: .automatic)
+    }
+    
+    func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        var array = tickets
+        array.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        stocks = indexs + array
+        tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
+    }
+}
+
+// MARK: UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let controller = storyboard.instantiateViewController(withIdentifier: "DetailViewController") as! DetailViewController
+        controller.stock = tickets[indexPath.row]
+        navigationController?.pushViewController(controller, animated: true)
     }
 }
 
@@ -200,13 +269,14 @@ extension ViewController {
                         stocks.append(stock)
                     }
                     self.stocks = stocks
+                    self.collectionView.reloadData()
                     self.tableView.reloadData()
                 case .failure(let error):
                     print(url, error)
                 }
                 guard UIApplication.shared.applicationState == .active else { return }
                 guard self.isTransactionTime(start: "09:30", end: "11:30") || self.isTransactionTime(start: "13:00", end: "15:00") else { return }
-                Observable.just(()).delay(RxTimeInterval.seconds(2), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
+                Observable.just(()).delay(.milliseconds(15 * 100), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
                     guard let `self` = self else { return }
                     self.realTime()
                 }).disposed(by: self.disposeBag)
