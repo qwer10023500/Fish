@@ -41,6 +41,11 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="BKT-Ee-DV7">
+                        <barButtonItem key="leftBarButtonItem" style="plain" systemItem="edit" id="j0U-Lc-niy">
+                            <connections>
+                                <action selector="editAction:" destination="B10-Cl-hjH" id="n2S-v0-uFj"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="zGV-4S-rAe">
                             <connections>
                                 <action selector="addAction:" destination="B10-Cl-hjH" id="5Om-gx-75Q"/>

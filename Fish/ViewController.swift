@@ -95,6 +95,10 @@ class ViewController: UITableViewController {
         controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         present(controller, animated: true, completion: nil)
     }
+    
+    @IBAction func editAction(_ sender: UIBarButtonItem) {
+        tableView.setEditing(!tableView.isEditing, animated: true)
+    }
 }
 
 extension ViewController {
@@ -140,6 +144,16 @@ extension ViewController {
     
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return stocks[indexPath.row].mode == .index ? 50 : 60
+    }
+    
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    override func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        var stocks = self.stocks
+        stocks.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        self.stocks = stocks
     }
 }
 
