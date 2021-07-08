@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="18122" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="18093"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="IndexViewCell" id="gTV-IL-0wX" customClass="IndexViewCell" customModule="Fishs" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="244" height="129"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="244" height="129"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wEr-Eo-9O9">
+                        <rect key="frame" x="104.5" y="10" width="35.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="price" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0lb-AH-Rmc">
+                        <rect key="frame" x="103" y="54" width="38.5" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="fluctuation" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dGC-hM-K5l">
+                        <rect key="frame" x="10" y="102" width="69.5" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="point" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4FB-Rq-hgp">
+                        <rect key="frame" x="201" y="102" width="33" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstItem="0lb-AH-Rmc" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="7OZ-xj-jy0"/>
+                <constraint firstAttribute="bottom" secondItem="4FB-Rq-hgp" secondAttribute="bottom" constant="10" id="9hS-Mh-7ms"/>
+                <constraint firstItem="wEr-Eo-9O9" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="10" id="KcN-qu-lvg"/>
+                <constraint firstItem="wEr-Eo-9O9" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YCN-Bb-izg"/>
+                <constraint firstItem="0lb-AH-Rmc" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="e05-D7-BLj"/>
+                <constraint firstItem="dGC-hM-K5l" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="kKJ-tI-cyo"/>
+                <constraint firstAttribute="trailing" secondItem="4FB-Rq-hgp" secondAttribute="trailing" constant="10" id="niw-MU-ooS"/>
+                <constraint firstAttribute="bottom" secondItem="dGC-hM-K5l" secondAttribute="bottom" constant="10" id="pfX-uT-46Y"/>
+            </constraints>
+            <size key="customSize" width="244" height="129"/>
+            <connections>
+                <outlet property="fluctuationView" destination="dGC-hM-K5l" id="Q4M-aB-oMX"/>
+                <outlet property="nameView" destination="wEr-Eo-9O9" id="X5h-JE-YkZ"/>
+                <outlet property="pointView" destination="4FB-Rq-hgp" id="tzg-XB-h02"/>
+                <outlet property="priceView" destination="0lb-AH-Rmc" id="DL7-Y7-OPi"/>
+            </connections>
+            <point key="canvasLocation" x="95.652173913043484" y="75.334821428571431"/>
+        </collectionViewCell>
+    </objects>
+</document>

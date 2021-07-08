@@ -1,8 +1,8 @@
 //
 //  AppDelegate.swift
-//  Fish
+//  Fishs
 //
-//  Created by 小孩 on 2021/6/29.
+//  Created by 小孩 on 2021/7/8.
 //
 
 import UIKit
@@ -16,6 +16,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         return true
     }
-
 }
 

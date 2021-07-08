@@ -1,24 +1,23 @@
 //
-//  Stock.swift
-//  Fish
+//  QHStockModel.swift
+//  Fishs
 //
-//  Created by 小孩 on 2021/6/30.
+//  Created by 小孩 on 2021/7/8.
 //
 
 import UIKit
 
-class Stock: NSObject, NSCoding {
-
+class QHStockModel: QHBaseModel, NSCoding {
     enum Mode: Int {
         case index = 0
-        case other = 1
+        case stock = 1
     }
     
     /** id */
     var id: String = String()
     
     /** mode */
-    var mode: Stock.Mode = .other
+    var mode: QHStockModel.Mode = .stock
     
     /** name */
     var name: String = String()
@@ -42,7 +41,7 @@ class Stock: NSObject, NSCoding {
     var start: String = String()
     
     convenience init(_ id: String,
-                     mode: Stock.Mode = .other,
+                     mode: QHStockModel.Mode = .stock,
                      name: String = String(),
                      price: String = String(),
                      fluctuation: String = String(),
@@ -90,22 +89,23 @@ class Stock: NSObject, NSCoding {
     }
     
     override func isEqual(_ object: Any?) -> Bool {
-        guard let `object` = object as? Stock else { return false }
+        guard let `object` = object as? QHStockModel else { return false }
         return object.id == id
     }
 }
 
-extension Stock {
+// MARK: Public
+extension QHStockModel {
     /** parsing */
-    public class func parsing(value: String) -> Stock {
+    public class func parsing(_ value: String) -> QHStockModel {
         let array = value.replacingOccurrences(of: "var hq_str_", with: "").replacingOccurrences(of: "\"", with: "").components(separatedBy: "=")
-        var stock = Stock()
+        var stock = QHStockModel()
         guard array.count == 2 else { return stock }
         let id = array[0]
         if id.contains("s_s") {
             let list = array[1].components(separatedBy: ",")
             guard list.count >= 4 else { return stock }
-            stock = Stock(id, mode: .index, name: list[0], price: list[1], fluctuation: String(format: "%@%%", list[3]), point: list[2])
+            stock = QHStockModel(id, mode: .index, name: list[0], price: list[1], fluctuation: String(format: "%@%%", list[3]), point: list[2])
             return stock
         } else {
             let list = array[1].components(separatedBy: ",")
@@ -119,8 +119,8 @@ extension Stock {
             } else {
                 symbol = "-"
             }
-            stock = Stock(id,
-                          mode: .other,
+            stock = QHStockModel(id,
+                          mode: .stock,
                           name: list[0],
                           price: current == 0 ? list[2] : list[3],
                           fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0),
@@ -129,17 +129,5 @@ extension Stock {
                           start: list[1])
             return stock
         }
-    }
-    
-    /** assignment */
-    public func assignment(_ new: Stock) {
-        mode = new.mode
-        name = new.name
-        price = new.price
-        fluctuation = new.fluctuation
-        point = new.point
-        max = new.max
-        min = new.min
-        start = new.start
     }
 }

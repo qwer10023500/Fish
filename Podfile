@@ -1,29 +1,31 @@
 # Uncomment the next line to define a global platform for your project
-platform :ios, '10.0'
+platform :ios, '11.0'
 inhibit_all_warnings!
 
-target 'Fish' do
+target 'Fishs' do
   # Comment the next line if you don't want to use dynamic frameworks
   use_frameworks!
   
-  # Pods for Fish
+  # Pods for Fishs
+  pod 'Moya' # Network
   
-  pod 'Alamofire' # Network
+  pod 'Kingfisher' # Network Image
   
-  pod 'Kingfisher' # image
+  pod 'MJRefresh' # Refresh
   
   pod 'RxSwift' # Reactive
   pod 'RxCocoa' # Reactive
   pod 'NSObject+Rx' # Reactive
   
-  pod 'MJRefresh' #Refresh
+  pod 'SnapKit' # AutoLayout
+  
 end
 
 post_install do |installer|
   installer.pods_project.targets.each do |target|
     target.build_configurations.each do |config|
       config.build_settings['SWIFT_VERSION'] = '5.0'
-      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '10.0'
+      config.build_settings['IPHONEOS_DEPLOYMENT_TARGET'] = '11.0'
     end
   end
 end
