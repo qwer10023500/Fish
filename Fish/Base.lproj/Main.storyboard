@@ -133,9 +133,9 @@
                                 <action selector="editAction:" destination="YZY-uz-NrJ" id="nYe-1A-Po0"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" style="plain" systemItem="add" id="lcB-d1-kI7">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="V7R-oo-caC">
                             <connections>
-                                <action selector="addAction:" destination="YZY-uz-NrJ" id="Bg7-na-sgF"/>
+                                <action selector="addAction:" destination="YZY-uz-NrJ" id="5Xs-Sk-T9a"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>

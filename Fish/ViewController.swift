@@ -210,7 +210,9 @@ extension ViewController: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, moveRowAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
         var array = tickets
-        array.swapAt(sourceIndexPath.row, destinationIndexPath.row)
+        let item = array[sourceIndexPath.row]
+        array.remove(at: sourceIndexPath.row)
+        array.insert(item, at: destinationIndexPath.row)
         stocks = indexs + array
         tableView.moveRow(at: sourceIndexPath, to: destinationIndexPath)
     }
