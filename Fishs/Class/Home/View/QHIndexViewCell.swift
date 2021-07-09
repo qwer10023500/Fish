@@ -1,5 +1,5 @@
 //
-//  IndexViewCell.swift
+//  QHIndexViewCell.swift
 //  Fishs
 //
 //  Created by 小孩 on 2021/7/8.
@@ -7,7 +7,7 @@
 
 import UIKit
 
-class IndexViewCell: UICollectionViewCell {
+class QHIndexViewCell: UICollectionViewCell {
 
     @IBOutlet weak var nameView: UILabel!
     @IBOutlet weak var priceView: UILabel!
@@ -36,10 +36,4 @@ class IndexViewCell: UICollectionViewCell {
             }
         }
     }
-    
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
-    }
-
 }

@@ -22,11 +22,14 @@
 		A0CEA24A2696E25E001DC990 /* QHStockModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2492696E25E001DC990 /* QHStockModel.swift */; };
 		A0CEA24C2696E2AC001DC990 /* QHBaseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA24B2696E2AC001DC990 /* QHBaseModel.swift */; };
 		A0CEA24E2696E8FC001DC990 /* QHHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA24D2696E8FC001DC990 /* QHHomeViewController.swift */; };
-		A0CEA2512696EA53001DC990 /* IndexViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA24F2696EA53001DC990 /* IndexViewCell.swift */; };
-		A0CEA2522696EA53001DC990 /* IndexViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0CEA2502696EA53001DC990 /* IndexViewCell.xib */; };
+		A0CEA2512696EA53001DC990 /* QHIndexViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA24F2696EA53001DC990 /* QHIndexViewCell.swift */; };
+		A0CEA2522696EA53001DC990 /* QHIndexViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0CEA2502696EA53001DC990 /* QHIndexViewCell.xib */; };
 		A0CEA2542696EBDE001DC990 /* QHHomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2532696EBDE001DC990 /* QHHomeViewModel.swift */; };
 		A0CEA2562696F94F001DC990 /* QHHomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2552696F94F001DC990 /* QHHomeModel.swift */; };
 		A0CEA2582696F9EF001DC990 /* QHCategoryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2572696F9EF001DC990 /* QHCategoryModel.swift */; };
+		A0DD1D2B2697FBFE00100907 /* QHStockViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D292697FBFE00100907 /* QHStockViewCell.swift */; };
+		A0DD1D2C2697FBFE00100907 /* QHStockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */; };
+		A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D32269807D700100907 /* QHDetailViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,11 +51,14 @@
 		A0CEA2492696E25E001DC990 /* QHStockModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHStockModel.swift; sourceTree = "<group>"; };
 		A0CEA24B2696E2AC001DC990 /* QHBaseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHBaseModel.swift; sourceTree = "<group>"; };
 		A0CEA24D2696E8FC001DC990 /* QHHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeViewController.swift; sourceTree = "<group>"; };
-		A0CEA24F2696EA53001DC990 /* IndexViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IndexViewCell.swift; sourceTree = "<group>"; };
-		A0CEA2502696EA53001DC990 /* IndexViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = IndexViewCell.xib; sourceTree = "<group>"; };
+		A0CEA24F2696EA53001DC990 /* QHIndexViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHIndexViewCell.swift; sourceTree = "<group>"; };
+		A0CEA2502696EA53001DC990 /* QHIndexViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHIndexViewCell.xib; sourceTree = "<group>"; };
 		A0CEA2532696EBDE001DC990 /* QHHomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeViewModel.swift; sourceTree = "<group>"; };
 		A0CEA2552696F94F001DC990 /* QHHomeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeModel.swift; sourceTree = "<group>"; };
 		A0CEA2572696F9EF001DC990 /* QHCategoryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHCategoryModel.swift; sourceTree = "<group>"; };
+		A0DD1D292697FBFE00100907 /* QHStockViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHStockViewCell.swift; sourceTree = "<group>"; };
+		A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHStockViewCell.xib; sourceTree = "<group>"; };
+		A0DD1D32269807D700100907 /* QHDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHDetailViewController.swift; sourceTree = "<group>"; };
 		C63C7ABF80F0C9D2710625B6 /* Pods-Fishs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishs.release.xcconfig"; path = "Target Support Files/Pods-Fishs/Pods-Fishs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -101,6 +107,7 @@
 				A06A9F242696DE67008817FD /* AppDelegate */,
 				A06A9F262696DE67008817FD /* Main */,
 				A06A9F1F2696DE67008817FD /* Home */,
+				A0DD1D2D269807B400100907 /* Detail */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -146,8 +153,10 @@
 		A06A9F222696DE67008817FD /* View */ = {
 			isa = PBXGroup;
 			children = (
-				A0CEA24F2696EA53001DC990 /* IndexViewCell.swift */,
-				A0CEA2502696EA53001DC990 /* IndexViewCell.xib */,
+				A0CEA24F2696EA53001DC990 /* QHIndexViewCell.swift */,
+				A0CEA2502696EA53001DC990 /* QHIndexViewCell.xib */,
+				A0DD1D292697FBFE00100907 /* QHStockViewCell.swift */,
+				A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -223,6 +232,46 @@
 				A0CEA2422696E230001DC990 /* QHConfiguration.swift */,
 			);
 			path = Struct;
+			sourceTree = "<group>";
+		};
+		A0DD1D2D269807B400100907 /* Detail */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD1D2E269807B400100907 /* ViewModel */,
+				A0DD1D2F269807B400100907 /* Controller */,
+				A0DD1D30269807B400100907 /* Model */,
+				A0DD1D31269807B400100907 /* View */,
+			);
+			path = Detail;
+			sourceTree = "<group>";
+		};
+		A0DD1D2E269807B400100907 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		A0DD1D2F269807B400100907 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD1D32269807D700100907 /* QHDetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		A0DD1D30269807B400100907 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		A0DD1D31269807B400100907 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		C1CD807AB8B1BE3FA45C7532 /* Frameworks */ = {
@@ -302,7 +351,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				A06A9F162696DCC4008817FD /* LaunchScreen.storyboard in Resources */,
-				A0CEA2522696EA53001DC990 /* IndexViewCell.xib in Resources */,
+				A0CEA2522696EA53001DC990 /* QHIndexViewCell.xib in Resources */,
+				A0DD1D2C2697FBFE00100907 /* QHStockViewCell.xib in Resources */,
 				A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */,
 				A06A9F112696DCC3008817FD /* Main.storyboard in Resources */,
 			);
@@ -363,14 +413,16 @@
 				A0CEA24E2696E8FC001DC990 /* QHHomeViewController.swift in Sources */,
 				A0CEA2382696E142001DC990 /* QHPlugin.swift in Sources */,
 				A0CEA2562696F94F001DC990 /* QHHomeModel.swift in Sources */,
-				A0CEA2512696EA53001DC990 /* IndexViewCell.swift in Sources */,
+				A0CEA2512696EA53001DC990 /* QHIndexViewCell.swift in Sources */,
 				A0CEA2582696F9EF001DC990 /* QHCategoryModel.swift in Sources */,
+				A0DD1D2B2697FBFE00100907 /* QHStockViewCell.swift in Sources */,
 				A0CEA2542696EBDE001DC990 /* QHHomeViewModel.swift in Sources */,
 				A0CEA24C2696E2AC001DC990 /* QHBaseModel.swift in Sources */,
 				A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */,
 				A0CEA2482696E230001DC990 /* QHConfiguration.swift in Sources */,
 				A0CEA24A2696E25E001DC990 /* QHStockModel.swift in Sources */,
 				A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */,
+				A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */,
 				A0CEA2432696E230001DC990 /* QHBaseViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

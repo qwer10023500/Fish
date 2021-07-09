@@ -15,9 +15,13 @@ class QHCategoryModel: QHBaseModel, NSCoding {
     /** stocks */
     var stocks: [QHStockModel] = [QHStockModel]()
     
-    convenience init(_ name: String) {
+    /** isSelected */
+    var isSelected: Bool = false
+    
+    convenience init(_ name: String, isSelected: Bool = true) {
         self.init()
         self.name = name
+        self.isSelected = isSelected
     }
     
     override init() { super.init() }
@@ -26,10 +30,12 @@ class QHCategoryModel: QHBaseModel, NSCoding {
         super.init()
         name = coder.decodeObject(forKey: "name") as? String ?? String()
         stocks = coder.decodeObject(forKey: "stocks") as? [QHStockModel] ?? [QHStockModel]()
+        isSelected = coder.decodeBool(forKey: "isSelected")
     }
     
     func encode(with coder: NSCoder) {
         coder.encode(name, forKey: "name")
         coder.encode(stocks, forKey: "stocks")
+        coder.encode(isSelected, forKey: "isSelected")
     }
 }
