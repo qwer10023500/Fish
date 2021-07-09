@@ -9,21 +9,30 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News-->
+        <!--News View Controller-->
         <scene sceneID="Nnb-1j-7Dg">
             <objects>
-                <viewController id="PG3-ny-sp2" customClass="QHBaseViewController" customModule="Fishs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="PG3-ny-sp2" customClass="QHNewsViewController" customModule="Fishs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O6D-sm-eMg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="rGD-y0-oME"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="News" id="mN7-IW-MJI"/>
+                    <navigationItem key="navigationItem" id="JWz-jn-agx">
+                        <barButtonItem key="leftBarButtonItem" title="back" id="AGt-Fg-zhM">
+                            <connections>
+                                <action selector="backAction:" destination="PG3-ny-sp2" id="iDe-a4-R6t"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="backItem" destination="AGt-Fg-zhM" id="Qje-u8-RsO"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGR-fp-b5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="303" y="234"/>
+            <point key="canvasLocation" x="1213.0434782608697" y="233.70535714285714"/>
         </scene>
         <!--Home View Controller-->
         <scene sceneID="o2d-hf-bJA">
@@ -122,6 +131,16 @@
                                     <action selector="segmetedControlValueChange:" destination="Qeu-ry-9dl" eventType="valueChanged" id="bNA-kz-c7q"/>
                                 </connections>
                             </segmentedControl>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RYm-FI-czF">
+                                <rect key="frame" x="184.5" y="618" width="45" height="34"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <state key="normal" title="News">
+                                    <color key="titleColor" systemColor="secondaryLabelColor"/>
+                                </state>
+                                <connections>
+                                    <action selector="newsAction:" destination="Qeu-ry-9dl" eventType="touchUpInside" id="Kpk-FI-q6t"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tYq-gu-kXC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -129,6 +148,8 @@
                             <constraint firstItem="goe-4f-N6n" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="2WX-tv-qT4"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" id="66C-jd-XjZ"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="top" secondItem="NhC-Sk-cV2" secondAttribute="bottom" constant="50" id="9bV-Ze-hzQ"/>
+                            <constraint firstItem="RYm-FI-czF" firstAttribute="top" secondItem="goe-4f-N6n" secondAttribute="bottom" constant="70" id="COk-2S-psP"/>
+                            <constraint firstItem="RYm-FI-czF" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="JQh-xI-Jdi"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="centerY" secondItem="iKQ-F7-4P9" secondAttribute="centerY" id="R9q-d6-s4U"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="trailing" secondItem="tYq-gu-kXC" secondAttribute="trailing" id="ddd-fc-FlO"/>
                             <constraint firstItem="NhC-Sk-cV2" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" constant="20" id="dm2-aU-b1a"/>
@@ -155,7 +176,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="lcK-zo-1bZ" kind="relationship" relationship="viewControllers" id="5hZ-F1-zir"/>
-                        <segue destination="PG3-ny-sp2" kind="relationship" relationship="viewControllers" id="SuW-58-cjP"/>
+                        <segue destination="FqY-yJ-zHH" kind="relationship" relationship="viewControllers" id="SuW-58-cjP"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VHc-iA-Ah2" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -181,8 +202,30 @@
             </objects>
             <point key="canvasLocation" x="302.89855072463769" y="-658.25892857142856"/>
         </scene>
+        <!--News-->
+        <scene sceneID="EfN-Ae-9zG">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FqY-yJ-zHH" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="News" id="mN7-IW-MJI"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="dWa-ci-c33">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="PG3-ny-sp2" kind="relationship" relationship="rootViewController" id="a03-lH-yxy"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hOG-h7-T4T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="302.89855072463769" y="233.70535714285714"/>
+        </scene>
     </scenes>
     <resources>
+        <systemColor name="secondaryLabelColor">
+            <color red="0.23529411764705882" green="0.23529411764705882" blue="0.2627450980392157" alpha="0.59999999999999998" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -34,6 +34,7 @@
 		A0DD1D3A2698329900100907 /* QHStockTableHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */; };
 		A0DD1D3B2698329900100907 /* QHStockTableHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */; };
 		A0DD1D3D2698372B00100907 /* QHHomeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */; };
+		A0DD1D43269851B600100907 /* QHNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D42269851B600100907 /* QHNewsViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -67,6 +68,7 @@
 		A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHStockTableHeaderViewCell.swift; sourceTree = "<group>"; };
 		A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHStockTableHeaderViewCell.xib; sourceTree = "<group>"; };
 		A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeTableHeaderView.swift; sourceTree = "<group>"; };
+		A0DD1D42269851B600100907 /* QHNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHNewsViewController.swift; sourceTree = "<group>"; };
 		C63C7ABF80F0C9D2710625B6 /* Pods-Fishs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishs.release.xcconfig"; path = "Target Support Files/Pods-Fishs/Pods-Fishs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -117,6 +119,7 @@
 				A06A9F262696DE67008817FD /* Main */,
 				A06A9F1F2696DE67008817FD /* Home */,
 				A0DD1D2D269807B400100907 /* Detail */,
+				A0DD1D40269851A600100907 /* News */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -286,6 +289,22 @@
 			path = View;
 			sourceTree = "<group>";
 		};
+		A0DD1D40269851A600100907 /* News */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD1D41269851A600100907 /* Controller */,
+			);
+			path = News;
+			sourceTree = "<group>";
+		};
+		A0DD1D41269851A600100907 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A0DD1D42269851B600100907 /* QHNewsViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		C1CD807AB8B1BE3FA45C7532 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
@@ -442,6 +461,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0CEA2472696E230001DC990 /* Defaults.swift in Sources */,
+				A0DD1D43269851B600100907 /* QHNewsViewController.swift in Sources */,
 				A0CEA2362696DF89001DC990 /* QHDomain.swift in Sources */,
 				A0CEA2462696E230001DC990 /* QHWebViewController.swift in Sources */,
 				A0CEA24E2696E8FC001DC990 /* QHHomeViewController.swift in Sources */,

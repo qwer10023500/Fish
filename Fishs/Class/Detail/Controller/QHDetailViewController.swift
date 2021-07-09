@@ -25,6 +25,12 @@ class QHDetailViewController: QHBaseViewController {
     @IBAction func segmetedControlValueChange(_ sender: UISegmentedControl) {
         kImage()
     }
+    
+    @IBAction func newsAction(_ sender: UIButton) {
+        let id = stock.id.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
+        let controller = QHWebViewController(URL(string: "http://stockpage.10jqka.com.cn/\(id)"))
+        navigationController?.pushViewController(controller, animated: true)
+    }
 }
 
 extension QHDetailViewController {
