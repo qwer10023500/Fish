@@ -51,7 +51,7 @@
                                     <outlet property="delegate" destination="X9V-jb-d2J" id="ZdF-81-NrQ"/>
                                 </connections>
                             </collectionView>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-it-9Vs">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="60" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="DEt-it-9Vs">
                                 <rect key="frame" x="0.0" y="158" width="414" height="655"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <connections>

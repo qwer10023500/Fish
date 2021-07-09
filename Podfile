@@ -19,6 +19,8 @@ target 'Fishs' do
   
   pod 'SnapKit' # AutoLayout
   
+  pod 'R.swift' # Resource
+  
 end
 
 post_install do |installer|

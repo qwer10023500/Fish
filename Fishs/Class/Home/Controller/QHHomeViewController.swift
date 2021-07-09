@@ -38,8 +38,14 @@ class QHHomeViewController: QHBaseViewController {
     override func structureUI() {
         super.structureUI()
         
-        indexView.register(UINib(nibName: "QHIndexViewCell", bundle: nil), forCellWithReuseIdentifier: "QHIndexViewCell")
-        stockView.register(UINib(nibName: "QHStockViewCell", bundle: nil), forCellReuseIdentifier: "QHStockViewCell")
+        indexView.register(R.nib.qhIndexViewCell)
+        stockView.register(R.nib.qhStockViewCell)
+        
+        let tableHeaderView = QHHomeTableHeaderView(home)
+        tableHeaderView.delegate = self
+        tableHeaderView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: view.bounds.width, height: 40))
+        tableHeaderView.backgroundColor = UIColor.clear
+        stockView.tableHeaderView = tableHeaderView
         
         MJRefreshNormalHeader { [weak self] in
             guard let `self` = self else { return }
@@ -123,9 +129,13 @@ extension QHHomeViewController {
     /** update stock */
     fileprivate func update() {
         guard UIApplication.shared.applicationState == .active else { return }
-        guard isTransactionTime(start: "09:30:00", end: "11:30:00") || isTransactionTime(start: "13:00:00", end: "15:00:00") else { return }
+        guard isTransactionTime(start: "09:30:00", end: "11:30:00") || isTransactionTime(start: "13:00:00", end: "14:57:00") else { return }
         Observable.just(()).delay(.milliseconds(15 * 100), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
+            guard !self.stockView.isEditing else {
+                self.update()
+                return
+            }
             self.viewModel.input.stocks.onNext(self.home)
         }).disposed(by: self.disposeBag)
     }
@@ -145,7 +155,7 @@ extension QHHomeViewController: UICollectionViewDataSource {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "QHIndexViewCell", for: indexPath) as! QHIndexViewCell
+        guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: R.reuseIdentifier.qhIndexViewCell, for: indexPath) else { return UICollectionViewCell() }
         cell.stock = home.indexs[indexPath.item]
         return cell
     }
@@ -158,8 +168,7 @@ extension QHHomeViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "QHDetailViewController") as! QHDetailViewController
+        guard let controller = R.storyboard.main.qhDetailViewController() else { return }
         controller.stock = home.indexs[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
     }
@@ -172,7 +181,7 @@ extension QHHomeViewController: UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "QHStockViewCell", for: indexPath) as! QHStockViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: R.reuseIdentifier.qhStockViewCell, for: indexPath) else { return UITableViewCell() }
         cell.stock = category().stocks[indexPath.row]
         return cell
     }
@@ -212,9 +221,29 @@ extension QHHomeViewController: UITableViewDataSource {
 // MARK: UITableViewDelegate
 extension QHHomeViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
-        let controller = storyboard.instantiateViewController(withIdentifier: "QHDetailViewController") as! QHDetailViewController
+        guard let controller = R.storyboard.main.qhDetailViewController() else { return }
         controller.stock = category().stocks[indexPath.row]
         navigationController?.pushViewController(controller, animated: true)
+    }
+}
+
+// MARK: QHHomeTableHeaderViewDelegate
+extension QHHomeViewController: QHHomeTableHeaderViewDelegate {
+    func add(_ tableHeaderView: QHHomeTableHeaderView) {
+        let controller = UIAlertController(title: "", message: "", preferredStyle: .alert)
+        controller.addTextField(configurationHandler: nil)
+        controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        controller.addAction(UIAlertAction(title: "Done", style: .default, handler: { [weak controller] _ in
+            guard let `controller` = controller, let text = controller.textFields?.first?.text else { return }
+            var categories = self.home.categories
+            categories.append(QHCategoryModel(text, isSelected: false))
+            self.home.categories = categories
+            tableHeaderView.collectionView.reloadData()
+        }))
+        present(controller, animated: true, completion: nil)
+    }
+    
+    func selectItem(_ tableHeaderView: QHHomeTableHeaderView, indexPath: IndexPath) {
+        viewModel.input.stocks.onNext(home)
     }
 }

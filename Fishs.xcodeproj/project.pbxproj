@@ -30,6 +30,10 @@
 		A0DD1D2B2697FBFE00100907 /* QHStockViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D292697FBFE00100907 /* QHStockViewCell.swift */; };
 		A0DD1D2C2697FBFE00100907 /* QHStockViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */; };
 		A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D32269807D700100907 /* QHDetailViewController.swift */; };
+		A0DD1D3726982A2500100907 /* R.generated.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D3626982A2500100907 /* R.generated.swift */; };
+		A0DD1D3A2698329900100907 /* QHStockTableHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */; };
+		A0DD1D3B2698329900100907 /* QHStockTableHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */; };
+		A0DD1D3D2698372B00100907 /* QHHomeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,6 +63,10 @@
 		A0DD1D292697FBFE00100907 /* QHStockViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHStockViewCell.swift; sourceTree = "<group>"; };
 		A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHStockViewCell.xib; sourceTree = "<group>"; };
 		A0DD1D32269807D700100907 /* QHDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHDetailViewController.swift; sourceTree = "<group>"; };
+		A0DD1D3626982A2500100907 /* R.generated.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = R.generated.swift; sourceTree = "<group>"; };
+		A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHStockTableHeaderViewCell.swift; sourceTree = "<group>"; };
+		A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHStockTableHeaderViewCell.xib; sourceTree = "<group>"; };
+		A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeTableHeaderView.swift; sourceTree = "<group>"; };
 		C63C7ABF80F0C9D2710625B6 /* Pods-Fishs.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishs.release.xcconfig"; path = "Target Support Files/Pods-Fishs/Pods-Fishs.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -77,6 +85,7 @@
 		A06A9EFD2696DCC3008817FD = {
 			isa = PBXGroup;
 			children = (
+				A0DD1D3626982A2500100907 /* R.generated.swift */,
 				A06A9F082696DCC3008817FD /* Fishs */,
 				A06A9F072696DCC3008817FD /* Products */,
 				D4A8D44E70BD87EBE95C4798 /* Pods */,
@@ -153,10 +162,13 @@
 		A06A9F222696DE67008817FD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */,
 				A0CEA24F2696EA53001DC990 /* QHIndexViewCell.swift */,
 				A0CEA2502696EA53001DC990 /* QHIndexViewCell.xib */,
 				A0DD1D292697FBFE00100907 /* QHStockViewCell.swift */,
 				A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */,
+				A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */,
+				A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -191,10 +203,10 @@
 			isa = PBXGroup;
 			children = (
 				A0CEA23F2696E230001DC990 /* Class */,
+				A06A9F252696DE67008817FD /* Network */,
 				A0CEA2392696E230001DC990 /* Controller */,
 				A0CEA23E2696E230001DC990 /* Model */,
 				A0CEA2412696E230001DC990 /* Struct */,
-				A06A9F252696DE67008817FD /* Network */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -298,6 +310,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A06A9F1A2696DCC4008817FD /* Build configuration list for PBXNativeTarget "Fishs" */;
 			buildPhases = (
+				A0DD1D342698296F00100907 /* R.swift */,
 				50B420FB34BF1BB4F7B8F21B /* [CP] Check Pods Manifest.lock */,
 				A06A9F022696DCC3008817FD /* Sources */,
 				A06A9F032696DCC3008817FD /* Frameworks */,
@@ -350,6 +363,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A0DD1D3B2698329900100907 /* QHStockTableHeaderViewCell.xib in Resources */,
 				A06A9F162696DCC4008817FD /* LaunchScreen.storyboard in Resources */,
 				A0CEA2522696EA53001DC990 /* QHIndexViewCell.xib in Resources */,
 				A0DD1D2C2697FBFE00100907 /* QHStockViewCell.xib in Resources */,
@@ -382,6 +396,26 @@
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
+		};
+		A0DD1D342698296F00100907 /* R.swift */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$TEMP_DIR/rswift-lastrun",
+			);
+			name = R.swift;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				$SRCROOT/R.generated.swift,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"$PODS_ROOT/R.swift/rswift\" generate \"$SRCROOT/R.generated.swift\"\n";
 		};
 		EAF4081C8232CF2197AFD8F0 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -418,12 +452,15 @@
 				A0DD1D2B2697FBFE00100907 /* QHStockViewCell.swift in Sources */,
 				A0CEA2542696EBDE001DC990 /* QHHomeViewModel.swift in Sources */,
 				A0CEA24C2696E2AC001DC990 /* QHBaseModel.swift in Sources */,
+				A0DD1D3726982A2500100907 /* R.generated.swift in Sources */,
+				A0DD1D3D2698372B00100907 /* QHHomeTableHeaderView.swift in Sources */,
 				A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */,
 				A0CEA2482696E230001DC990 /* QHConfiguration.swift in Sources */,
 				A0CEA24A2696E25E001DC990 /* QHStockModel.swift in Sources */,
 				A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */,
 				A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */,
 				A0CEA2432696E230001DC990 /* QHBaseViewController.swift in Sources */,
+				A0DD1D3A2698329900100907 /* QHStockTableHeaderViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
