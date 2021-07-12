@@ -64,6 +64,7 @@ class QHHomeViewController: QHBaseViewController {
             self.home = home
             self.indexView.reloadData()
             self.stockView.reloadData()
+            self.stockView.mj_header?.endRefreshing()
             self.update()
         }).disposed(by: rx.disposeBag)
         
