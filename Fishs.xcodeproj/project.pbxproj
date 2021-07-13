@@ -12,6 +12,7 @@
 		A06A9F112696DCC3008817FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F0F2696DCC3008817FD /* Main.storyboard */; };
 		A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F122696DCC4008817FD /* Assets.xcassets */; };
 		A06A9F162696DCC4008817FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F142696DCC4008817FD /* LaunchScreen.storyboard */; };
+		A084E844269D491B002A8253 /* QHDetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084E843269D491A002A8253 /* QHDetailWebViewController.swift */; };
 		A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2332696DF82001DC990 /* QHNetwork.swift */; };
 		A0CEA2362696DF89001DC990 /* QHDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2352696DF89001DC990 /* QHDomain.swift */; };
 		A0CEA2382696E142001DC990 /* QHPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2372696E142001DC990 /* QHPlugin.swift */; };
@@ -46,6 +47,7 @@
 		A06A9F122696DCC4008817FD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A06A9F152696DCC4008817FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A06A9F172696DCC4008817FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A084E843269D491A002A8253 /* QHDetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHDetailWebViewController.swift; sourceTree = "<group>"; };
 		A0CEA2332696DF82001DC990 /* QHNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QHNetwork.swift; sourceTree = "<group>"; };
 		A0CEA2352696DF89001DC990 /* QHDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QHDomain.swift; sourceTree = "<group>"; };
 		A0CEA2372696E142001DC990 /* QHPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QHPlugin.swift; sourceTree = "<group>"; };
@@ -271,6 +273,7 @@
 			isa = PBXGroup;
 			children = (
 				A0DD1D32269807D700100907 /* QHDetailViewController.swift */,
+				A084E843269D491A002A8253 /* QHDetailWebViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -477,6 +480,7 @@
 				A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */,
 				A0CEA2482696E230001DC990 /* QHConfiguration.swift in Sources */,
 				A0CEA24A2696E25E001DC990 /* QHStockModel.swift in Sources */,
+				A084E844269D491B002A8253 /* QHDetailWebViewController.swift in Sources */,
 				A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */,
 				A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */,
 				A0CEA2432696E230001DC990 /* QHBaseViewController.swift in Sources */,

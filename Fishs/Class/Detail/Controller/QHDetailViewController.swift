@@ -28,7 +28,7 @@ class QHDetailViewController: QHBaseViewController {
     
     @IBAction func newsAction(_ sender: UIButton) {
         let id = stock.id.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
-        let controller = QHWebViewController(URL(string: "http://stockpage.10jqka.com.cn/\(id)"))
+        let controller = QHDetailWebViewController(URL(string: "http://stockpage.10jqka.com.cn/\(id)"))
         navigationController?.pushViewController(controller, animated: true)
     }
 }
