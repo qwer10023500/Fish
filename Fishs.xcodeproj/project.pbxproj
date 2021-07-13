@@ -332,8 +332,8 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A06A9F1A2696DCC4008817FD /* Build configuration list for PBXNativeTarget "Fishs" */;
 			buildPhases = (
-				A0DD1D342698296F00100907 /* R.swift */,
 				50B420FB34BF1BB4F7B8F21B /* [CP] Check Pods Manifest.lock */,
+				A0DD1D342698296F00100907 /* R.swift */,
 				A06A9F022696DCC3008817FD /* Sources */,
 				A06A9F032696DCC3008817FD /* Frameworks */,
 				A06A9F042696DCC3008817FD /* Resources */,
@@ -433,7 +433,7 @@
 			outputFileListPaths = (
 			);
 			outputPaths = (
-				$SRCROOT/R.generated.swift,
+				"$SRCROOT/R.generated.swift",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;

@@ -7,6 +7,7 @@
 
 import UIKit
 import WebKit
+import MJRefresh
 
 class QHNewsViewController: QHWebViewController {
 
@@ -20,6 +21,13 @@ class QHNewsViewController: QHWebViewController {
         
         guard let url = URL(string: "https://m.10jqka.com.cn") else { return }
         webView.load(URLRequest(url: url))
+        
+        MJRefreshNormalHeader { [weak self] in
+            guard let `self` = self else { return }
+            self.webView.reload()
+            self.webView.scrollView.mj_header?.endRefreshing()
+        }.autoChangeTransparency(true)
+        .link(to: webView.scrollView)
     }
     
     override func viewWillAppear(_ animated: Bool) {
