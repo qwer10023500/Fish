@@ -246,5 +246,6 @@ extension QHHomeViewController: QHHomeTableHeaderViewDelegate {
     
     func selectItem(_ tableHeaderView: QHHomeTableHeaderView, indexPath: IndexPath) {
         viewModel.input.stocks.onNext(home)
+        disposeBag = DisposeBag()
     }
 }
