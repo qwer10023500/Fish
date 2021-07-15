@@ -64,6 +64,7 @@ class QHHomeViewModel: QHViewModelType {
                                 stock.max = new.max
                                 stock.min = new.min
                                 stock.start = new.start
+                                stock.yesterday = new.yesterday
                             }
                         }
                         break

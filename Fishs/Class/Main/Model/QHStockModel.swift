@@ -40,6 +40,9 @@ class QHStockModel: QHBaseModel, NSCoding {
     /** start */
     var start: String = String()
     
+    /** yesterday */
+    var yesterday: String = String()
+    
     /** cost */
     var cost: Double = 0
     
@@ -54,7 +57,8 @@ class QHStockModel: QHBaseModel, NSCoding {
                      point: String = String(),
                      max: String = String(),
                      min: String = String(),
-                     start: String = String()) {
+                     start: String = String(),
+                     yesterday: String = String()) {
         self.init()
         self.id = id
         self.mode = mode
@@ -65,6 +69,7 @@ class QHStockModel: QHBaseModel, NSCoding {
         self.max = max
         self.min = min
         self.start = start
+        self.yesterday = yesterday
     }
     
     override init() { super.init() }
@@ -82,6 +87,7 @@ class QHStockModel: QHBaseModel, NSCoding {
         start = coder.decodeObject(forKey: "start") as? String ?? String()
         cost = coder.decodeDouble(forKey: "cost")
         count = coder.decodeInteger(forKey: "count")
+        yesterday = coder.decodeObject(forKey: "yesterday") as? String ?? String()
     }
     
     func encode(with coder: NSCoder) {
@@ -96,6 +102,7 @@ class QHStockModel: QHBaseModel, NSCoding {
         coder.encode(start, forKey: "start")
         coder.encode(cost, forKey: "cost")
         coder.encode(count, forKey: "count")
+        coder.encode(yesterday, forKey: "yesterday")
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -136,7 +143,8 @@ extension QHStockModel {
                           fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0),
                           max: list[4],
                           min: list[5],
-                          start: list[1])
+                          start: list[1],
+                          yesterday: list[2])
             return stock
         }
     }

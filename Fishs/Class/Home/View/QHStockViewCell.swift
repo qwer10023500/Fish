@@ -28,16 +28,19 @@ class QHStockViewCell: UITableViewCell {
             }
             detailView.textColor = titleView.textColor
             
-            if let price = Double(stock.price), stock.cost != 0 && stock.count != 0 {
-                incomeView.text = QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - stock.cost) * Double(stock.count)))
-                
-                if incomeView.text?.contains("-") == true {
-                    incomeView.textColor = UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1)
-                } else {
-                    incomeView.textColor = UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
-                }
+            if let price = Double(stock.price), let yesterday = Double(stock.yesterday), stock.cost != 0 && stock.count != 0 {
+                let count = Double(stock.count)
+                let attributedText = NSMutableAttributedString(string: String(format: "当日盈亏: %@",
+                                                                              QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - yesterday) * count)) ?? String()), attributes: [
+                                                                                NSAttributedString.Key.foregroundColor : yesterday >= price ? UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1) : UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
+                                                                              ])
+                attributedText.append(NSAttributedString(string: String(format: "\n总盈亏: %@",
+                                                                        QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - stock.cost) * count)) ?? String()), attributes: [
+                                                                            NSAttributedString.Key.foregroundColor : price <= stock.cost ? UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1) : UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
+                                                                        ]))
+                incomeView.attributedText = attributedText
             } else {
-                incomeView.text = nil
+                incomeView.attributedText = nil
             }
         }
     }

@@ -23,6 +23,10 @@ class QHDetailViewController: QHBaseViewController {
     override func structureUI() {
         super.structureUI()
         
+        if stock.count != 0 { countView.text = String(stock.count) }
+        
+        if stock.cost != 0 { costView.text = String(stock.cost) }
+        
         kImage()
     }
     
