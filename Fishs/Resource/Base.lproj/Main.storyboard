@@ -141,22 +141,46 @@
                                     <action selector="newsAction:" destination="Qeu-ry-9dl" eventType="touchUpInside" id="Kpk-FI-q6t"/>
                                 </connections>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="count" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="moW-Jt-85R">
+                                <rect key="frame" x="147" y="672" width="120" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="fSe-ZM-wRX"/>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="120" id="sRU-hI-iGX"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="cost" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ONW-AT-UIO">
+                                <rect key="frame" x="147" y="727" width="120" height="35"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="XLh-sB-XYs"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                            </textField>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tYq-gu-kXC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="2WX-tv-qT4"/>
+                            <constraint firstItem="ONW-AT-UIO" firstAttribute="top" secondItem="moW-Jt-85R" secondAttribute="bottom" constant="20" id="5WQ-eF-x85"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" id="66C-jd-XjZ"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="top" secondItem="NhC-Sk-cV2" secondAttribute="bottom" constant="50" id="9bV-Ze-hzQ"/>
+                            <constraint firstItem="moW-Jt-85R" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="C6O-3w-OVo"/>
                             <constraint firstItem="RYm-FI-czF" firstAttribute="top" secondItem="goe-4f-N6n" secondAttribute="bottom" constant="70" id="COk-2S-psP"/>
                             <constraint firstItem="RYm-FI-czF" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="JQh-xI-Jdi"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="centerY" secondItem="iKQ-F7-4P9" secondAttribute="centerY" id="R9q-d6-s4U"/>
+                            <constraint firstItem="ONW-AT-UIO" firstAttribute="width" secondItem="moW-Jt-85R" secondAttribute="width" id="aoW-zJ-gUQ"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="trailing" secondItem="tYq-gu-kXC" secondAttribute="trailing" id="ddd-fc-FlO"/>
                             <constraint firstItem="NhC-Sk-cV2" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" constant="20" id="dm2-aU-b1a"/>
+                            <constraint firstItem="ONW-AT-UIO" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="kN1-iP-y10"/>
                             <constraint firstItem="tYq-gu-kXC" firstAttribute="trailing" secondItem="NhC-Sk-cV2" secondAttribute="trailing" constant="20" id="mZ6-cD-lhU"/>
+                            <constraint firstItem="moW-Jt-85R" firstAttribute="top" secondItem="RYm-FI-czF" secondAttribute="bottom" constant="20" id="qvP-Ej-vBh"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="costView" destination="ONW-AT-UIO" id="PeQ-th-TX5"/>
+                        <outlet property="countView" destination="moW-Jt-85R" id="2gh-Pb-tKF"/>
                         <outlet property="imageView" destination="goe-4f-N6n" id="0tO-Ug-OB1"/>
                         <outlet property="segmentedControl" destination="NhC-Sk-cV2" id="IhH-QW-qpz"/>
                     </connections>

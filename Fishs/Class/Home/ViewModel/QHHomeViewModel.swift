@@ -52,7 +52,20 @@ class QHHomeViewModel: QHViewModelType {
                     let categories = home.categories
                     for categoriey in categories {
                         guard categoriey.isSelected else { continue }
-                        categoriey.stocks = stocks.filter({ stock in return stock.mode == .stock })
+                        for stock in categoriey.stocks {
+                            for new in stocks.filter({ stock in return stock.mode == .stock }) {
+                                guard stock == new else { continue }
+                                stock.id = new.id
+                                stock.mode = new.mode
+                                stock.name = new.name
+                                stock.price = new.price
+                                stock.fluctuation = new.fluctuation
+                                stock.point = new.point
+                                stock.max = new.max
+                                stock.min = new.min
+                                stock.start = new.start
+                            }
+                        }
                         break
                     }
                     home.categories = categories

@@ -40,6 +40,12 @@ class QHStockModel: QHBaseModel, NSCoding {
     /** start */
     var start: String = String()
     
+    /** cost */
+    var cost: Double = 0
+    
+    /** count */
+    var count: Int = 0
+    
     convenience init(_ id: String,
                      mode: QHStockModel.Mode = .stock,
                      name: String = String(),
@@ -74,6 +80,8 @@ class QHStockModel: QHBaseModel, NSCoding {
         max = coder.decodeObject(forKey: "max") as? String ?? String()
         min = coder.decodeObject(forKey: "min") as? String ?? String()
         start = coder.decodeObject(forKey: "start") as? String ?? String()
+        cost = coder.decodeDouble(forKey: "cost")
+        count = coder.decodeInteger(forKey: "count")
     }
     
     func encode(with coder: NSCoder) {
@@ -86,6 +94,8 @@ class QHStockModel: QHBaseModel, NSCoding {
         coder.encode(max, forKey: "max")
         coder.encode(min, forKey: "min")
         coder.encode(start, forKey: "start")
+        coder.encode(cost, forKey: "cost")
+        coder.encode(count, forKey: "count")
     }
     
     override func isEqual(_ object: Any?) -> Bool {

@@ -16,10 +16,29 @@ class QHDetailViewController: QHBaseViewController {
     
     @IBOutlet weak var imageView: UIImageView!
     
+    @IBOutlet weak var countView: UITextField!
+    
+    @IBOutlet weak var costView: UITextField!
+    
     override func structureUI() {
         super.structureUI()
         
         kImage()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        let categories = Defaults.shared.categories
+        for category in categories {
+            for item in category.stocks {
+                guard stock == item else { continue }
+                if let text = countView.text, let count = Int(text) { item.count = count }
+                if let text = costView.text, let cost = Double(text) { item.cost = cost }
+                break
+            }
+        }
+        Defaults.shared.categories = categories
     }
     
     @IBAction func segmetedControlValueChange(_ sender: UISegmentedControl) {
