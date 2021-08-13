@@ -23,7 +23,13 @@ class QHStockTableHeaderViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        QHLog(#function)
+        let gesture = UILongPressGestureRecognizer()
+        gesture.rx.event.subscribe(onNext: { [weak self] gesture in
+            guard let `self` = self, gesture.state == .began else { return }
+            NotificationCenter.default.post(name: NSNotification.Name("longPress.QHStockTableHeaderViewCell"), object: self.category)
+        }).disposed(by: rx.disposeBag)
+        contentView.addGestureRecognizer(gesture)
     }
 
 }

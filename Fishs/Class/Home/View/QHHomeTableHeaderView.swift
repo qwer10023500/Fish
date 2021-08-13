@@ -30,6 +30,7 @@ class QHHomeTableHeaderView: UIView {
         layout.scrollDirection = .horizontal
         layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
+        view.showsHorizontalScrollIndicator = false
         view.backgroundColor = UIColor.clear
         view.dataSource = self
         view.delegate = self

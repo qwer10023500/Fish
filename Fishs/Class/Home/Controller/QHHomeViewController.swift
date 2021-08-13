@@ -43,7 +43,7 @@ class QHHomeViewController: QHBaseViewController {
         
         let tableHeaderView = QHHomeTableHeaderView(home)
         tableHeaderView.delegate = self
-        tableHeaderView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: view.bounds.width, height: 40))
+        tableHeaderView.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: view.bounds.width, height: 50))
         tableHeaderView.backgroundColor = UIColor.clear
         stockView.tableHeaderView = tableHeaderView
         
@@ -81,6 +81,21 @@ class QHHomeViewController: QHBaseViewController {
         }).disposed(by: rx.disposeBag)
         
         viewModel.input.stocks.onNext(home)
+        
+        NotificationCenter.default.rx.notification(Notification.Name("longPress.QHStockTableHeaderViewCell")).subscribe(onNext: { [weak self] notification in
+            guard let `self` = self, let category = notification.object as? QHCategoryModel else { return }
+            let controller = UIAlertController(title: "Delete Category?", message: "", preferredStyle: .alert)
+            controller.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+            controller.addAction(UIAlertAction(title: "Done", style: .destructive, handler: { _ in
+                var categories = Defaults.shared.categories
+                for item in categories.enumerated() {
+                    if item.element.name == category.name && item.element.stocks.count == category.stocks.count { categories.remove(at: item.offset) }
+                }
+                Defaults.shared.categories = categories
+                tableHeaderView.collectionView.reloadData()
+            }))
+            self.present(controller, animated: true, completion: nil)
+        }).disposed(by: rx.disposeBag)
     }
     
     @IBAction func addAction(_ sender: UIBarButtonItem) {
