@@ -311,7 +311,7 @@ struct _R: Rswift.Validatable {
 
     #if os(iOS) || os(tvOS)
     struct main: Rswift.StoryboardResourceWithInitialControllerType, Rswift.Validatable {
-      typealias InitialController = UIKit.UITabBarController
+      typealias InitialController = QHTabBarController
 
       let bundle = R.hostingBundle
       let name = "Main"

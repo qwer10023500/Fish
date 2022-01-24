@@ -29,4 +29,44 @@ class Defaults: NSObject {
             return NSKeyedUnarchiver.unarchiveObject(with: data) as? [QHCategoryModel] ?? [QHCategoryModel]()
         }
     }
+    
+    /** money */
+    public var money: String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            UserDefaults.standard.string(forKey: #function) ?? String()
+        }
+    }
+    
+    /** financing */
+    public var financing: String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            UserDefaults.standard.string(forKey: #function) ?? String()
+        }
+    }
+    
+    /** trade */
+    public var trade: String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            UserDefaults.standard.string(forKey: #function) ?? String()
+        }
+    }
+    
+    /** target */
+    public var target: String {
+        set {
+            UserDefaults.standard.set(newValue, forKey: #function)
+        }
+        get {
+            UserDefaults.standard.string(forKey: #function) ?? String()
+        }
+    }
 }

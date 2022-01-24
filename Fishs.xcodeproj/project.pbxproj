@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		075796D8DD4410A9BAC36EED /* Pods_Fishs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0561F348373C4A03D29E4FA1 /* Pods_Fishs.framework */; };
+		A039A550279E913C0042AF38 /* QHCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */; };
+		A039A552279E9F490042AF38 /* QHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039A551279E9F490042AF38 /* QHTabBarController.swift */; };
 		A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A9F092696DCC3008817FD /* AppDelegate.swift */; };
 		A06A9F112696DCC3008817FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F0F2696DCC3008817FD /* Main.storyboard */; };
 		A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F122696DCC4008817FD /* Assets.xcassets */; };
@@ -41,6 +43,8 @@
 /* Begin PBXFileReference section */
 		0561F348373C4A03D29E4FA1 /* Pods_Fishs.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Fishs.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		929360B9AAD72321E2416359 /* Pods-Fishs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishs.debug.xcconfig"; path = "Target Support Files/Pods-Fishs/Pods-Fishs.debug.xcconfig"; sourceTree = "<group>"; };
+		A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHCalculatorViewController.swift; sourceTree = "<group>"; };
+		A039A551279E9F490042AF38 /* QHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHTabBarController.swift; sourceTree = "<group>"; };
 		A06A9F062696DCC3008817FD /* Fishs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06A9F092696DCC3008817FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06A9F102696DCC3008817FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -86,6 +90,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A039A54D279E911F0042AF38 /* Calculator */ = {
+			isa = PBXGroup;
+			children = (
+				A039A54E279E911F0042AF38 /* Controller */,
+			);
+			path = Calculator;
+			sourceTree = "<group>";
+		};
+		A039A54E279E911F0042AF38 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
 		A06A9EFD2696DCC3008817FD = {
 			isa = PBXGroup;
 			children = (
@@ -122,6 +142,7 @@
 				A06A9F1F2696DE67008817FD /* Home */,
 				A0DD1D2D269807B400100907 /* Detail */,
 				A0DD1D40269851A600100907 /* News */,
+				A039A54D279E911F0042AF38 /* Calculator */,
 			);
 			path = Class;
 			sourceTree = "<group>";
@@ -221,6 +242,7 @@
 			children = (
 				A0CEA23A2696E230001DC990 /* QHBaseViewController.swift */,
 				A0CEA23D2696E230001DC990 /* QHWebViewController.swift */,
+				A039A551279E9F490042AF38 /* QHTabBarController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -467,6 +489,7 @@
 				A0DD1D43269851B600100907 /* QHNewsViewController.swift in Sources */,
 				A0CEA2362696DF89001DC990 /* QHDomain.swift in Sources */,
 				A0CEA2462696E230001DC990 /* QHWebViewController.swift in Sources */,
+				A039A552279E9F490042AF38 /* QHTabBarController.swift in Sources */,
 				A0CEA24E2696E8FC001DC990 /* QHHomeViewController.swift in Sources */,
 				A0CEA2382696E142001DC990 /* QHPlugin.swift in Sources */,
 				A0CEA2562696F94F001DC990 /* QHHomeModel.swift in Sources */,
@@ -484,6 +507,7 @@
 				A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */,
 				A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */,
 				A0CEA2432696E230001DC990 /* QHBaseViewController.swift in Sources */,
+				A039A550279E913C0042AF38 /* QHCalculatorViewController.swift in Sources */,
 				A0DD1D3A2698329900100907 /* QHStockTableHeaderViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
