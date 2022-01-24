@@ -1,0 +1,456 @@
+[
+  {
+    "isSelected" : false,
+    "name" : "Own",
+    "stocks" : [
+
+    ]
+  },
+  {
+    "name" : "锂电池",
+    "isSelected" : false,
+    "stocks" : [
+      {
+        "max" : "89.50",
+        "price" : "88.07",
+        "name" : "天齐锂业",
+        "start" : "81.03",
+        "count" : 0,
+        "min" : "81.03",
+        "fluctuation" : "7.36%",
+        "point" : "6.04",
+        "id" : "sz002466",
+        "mode" : 1,
+        "cost" : 0
+      },
+      {
+        "start" : "124.00",
+        "price" : "134.87",
+        "max" : "134.87",
+        "count" : 0,
+        "id" : "sz002460",
+        "fluctuation" : "10.00%",
+        "min" : "122.63",
+        "cost" : 0,
+        "point" : "12.26",
+        "name" : "赣锋锂业",
+        "mode" : 1
+      },
+      {
+        "mode" : 1,
+        "name" : "宁德时代",
+        "fluctuation" : "2.00%",
+        "point" : "11.40",
+        "start" : "564.00",
+        "id" : "sz300750",
+        "price" : "580.89",
+        "cost" : 0,
+        "max" : "592.26",
+        "min" : "559.01",
+        "count" : 0
+      },
+      {
+        "cost" : 0,
+        "point" : "2.70",
+        "max" : "100.97",
+        "fluctuation" : "2.77%",
+        "name" : "亿纬锂能",
+        "min" : "95.77",
+        "start" : "96.08",
+        "id" : "sz300014",
+        "count" : 0,
+        "mode" : 1,
+        "price" : "100.00"
+      }
+    ]
+  },
+  {
+    "name" : "物流",
+    "stocks" : [
+      {
+        "min" : "65.01",
+        "max" : "67.18",
+        "id" : "sz002352",
+        "fluctuation" : "-3.07%",
+        "name" : "顺丰控股",
+        "count" : 0,
+        "price" : "65.33",
+        "start" : "67.18",
+        "point" : "-2.07",
+        "cost" : 0,
+        "mode" : 1
+      },
+      {
+        "point" : "-0.49",
+        "id" : "sz002120",
+        "cost" : 2154,
+        "price" : "20.47",
+        "max" : "20.93",
+        "min" : "20.23",
+        "name" : "韵达股份",
+        "start" : "20.81",
+        "fluctuation" : "-2.34%",
+        "count" : 100,
+        "mode" : 1
+      },
+      {
+        "count" : 0,
+        "cost" : 0,
+        "price" : "15.80",
+        "mode" : 1,
+        "max" : "16.28",
+        "name" : "圆通速递",
+        "id" : "sh600233",
+        "fluctuation" : "-2.29%",
+        "point" : "-0.37",
+        "start" : "16.28",
+        "min" : "15.69"
+      },
+      {
+        "start" : "9.53",
+        "mode" : 1,
+        "price" : "9.09",
+        "point" : "-0.49",
+        "count" : 0,
+        "max" : "9.54",
+        "id" : "sz002468",
+        "name" : "申通快递",
+        "fluctuation" : "-5.11%",
+        "min" : "9.05",
+        "cost" : 0
+      }
+    ],
+    "isSelected" : false
+  },
+  {
+    "name" : "半导体",
+    "stocks" : [
+      {
+        "name" : "半导体ETF",
+        "mode" : 1,
+        "fluctuation" : "1.37%",
+        "max" : "1.187",
+        "point" : "0.016",
+        "min" : "1.163",
+        "id" : "sh512480",
+        "cost" : 0,
+        "start" : "1.166",
+        "count" : 0,
+        "price" : "1.185"
+      },
+      {
+        "fluctuation" : "1.33%",
+        "price" : "289.01",
+        "id" : "sh603501",
+        "start" : "285.30",
+        "cost" : 0,
+        "count" : 0,
+        "point" : "3.79",
+        "max" : "294.47",
+        "min" : "282.88",
+        "mode" : 1,
+        "name" : "韦尔股份"
+      },
+      {
+        "cost" : 0,
+        "start" : "291.37",
+        "min" : "289.16",
+        "id" : "sz002371",
+        "point" : "5.71",
+        "name" : "北方华创",
+        "price" : "300.00",
+        "mode" : 1,
+        "max" : "302.50",
+        "count" : 0,
+        "fluctuation" : "1.94%"
+      },
+      {
+        "mode" : 1,
+        "point" : "9.30",
+        "start" : "218.30",
+        "cost" : 0,
+        "name" : "紫光国微",
+        "max" : "229.78",
+        "id" : "sz002049",
+        "fluctuation" : "4.29%",
+        "price" : "226.19",
+        "min" : "216.90",
+        "count" : 0
+      },
+      {
+        "mode" : 1,
+        "name" : "兆易创新",
+        "price" : "155.50",
+        "fluctuation" : "1.63%",
+        "id" : "sh603986",
+        "max" : "155.82",
+        "min" : "152.18",
+        "cost" : 0,
+        "count" : 0,
+        "point" : "2.50",
+        "start" : "152.50"
+      },
+      {
+        "start" : "110.00",
+        "name" : "北京君正",
+        "price" : "114.76",
+        "min" : "109.57",
+        "id" : "sz300223",
+        "max" : "115.62",
+        "fluctuation" : "3.39%",
+        "mode" : 1,
+        "point" : "3.76",
+        "cost" : 1111.6600000000001,
+        "count" : 100
+      },
+      {
+        "fluctuation" : "0.06%",
+        "min" : "286.00",
+        "id" : "sz300661",
+        "mode" : 1,
+        "start" : "286.57",
+        "max" : "301.82",
+        "cost" : 0,
+        "count" : 0,
+        "price" : "290.78",
+        "name" : "圣邦股份",
+        "point" : "0.18"
+      },
+      {
+        "max" : "52.73",
+        "id" : "sh600460",
+        "point" : "2.80",
+        "min" : "50.00",
+        "start" : "50.00",
+        "mode" : 1,
+        "fluctuation" : "5.64%",
+        "cost" : 0,
+        "name" : "士兰微",
+        "price" : "52.45",
+        "count" : 0
+      },
+      {
+        "min" : "332.00",
+        "cost" : 0,
+        "name" : "斯达半导",
+        "count" : 0,
+        "fluctuation" : "1.65%",
+        "start" : "332.00",
+        "id" : "sh603290",
+        "max" : "344.99",
+        "price" : "339.98",
+        "point" : "5.53",
+        "mode" : 1
+      },
+      {
+        "id" : "sz300373",
+        "fluctuation" : "5.99%",
+        "min" : "63.06",
+        "price" : "67.01",
+        "count" : 0,
+        "start" : "63.14",
+        "name" : "扬杰科技",
+        "max" : "67.97",
+        "mode" : 1,
+        "cost" : 0,
+        "point" : "3.79"
+      },
+      {
+        "count" : 0,
+        "id" : "sh605111",
+        "point" : "7.92",
+        "min" : "157.46",
+        "start" : "157.98",
+        "mode" : 1,
+        "price" : "165.40",
+        "fluctuation" : "5.03%",
+        "name" : "新洁能",
+        "max" : "168.85",
+        "cost" : 0
+      }
+    ],
+    "isSelected" : false
+  },
+  {
+    "isSelected" : true,
+    "stocks" : [
+      {
+        "fluctuation" : "-2.34%",
+        "point" : "-0.49",
+        "max" : "20.93",
+        "min" : "20.23",
+        "count" : 100,
+        "cost" : 2154,
+        "id" : "sz002120",
+        "mode" : 1,
+        "name" : "韵达股份",
+        "start" : "20.81",
+        "price" : "20.47"
+      },
+      {
+        "cost" : 1294.732,
+        "price" : "17.81",
+        "count" : 100,
+        "fluctuation" : "0.68%",
+        "mode" : 1,
+        "min" : "17.49",
+        "id" : "sz002463",
+        "name" : "沪电股份",
+        "start" : "17.64",
+        "point" : "0.12",
+        "max" : "18.07"
+      },
+      {
+        "price" : "12.05",
+        "min" : "12.01",
+        "max" : "12.36",
+        "mode" : 1,
+        "id" : "sh601360",
+        "name" : "三六零",
+        "fluctuation" : "-1.95%",
+        "count" : 100,
+        "cost" : 1061.4760000000001,
+        "start" : "12.25",
+        "point" : "-0.24"
+      },
+      {
+        "mode" : 1,
+        "price" : "114.76",
+        "id" : "sz300223",
+        "min" : "109.57",
+        "count" : 100,
+        "fluctuation" : "3.39%",
+        "name" : "北京君正",
+        "point" : "3.76",
+        "max" : "115.62",
+        "cost" : 1111.6600000000001,
+        "start" : "110.00"
+      },
+      {
+        "id" : "sh601099",
+        "name" : "太平洋",
+        "cost" : 53.840000000000003,
+        "min" : "3.25",
+        "max" : "3.30",
+        "price" : "3.25",
+        "point" : "-0.06",
+        "fluctuation" : "-1.81%",
+        "start" : "3.29",
+        "count" : 100,
+        "mode" : 1
+      },
+      {
+        "count" : 2300,
+        "max" : "180.00",
+        "start" : "172.11",
+        "cost" : 167.32499999999999,
+        "name" : "长春高新",
+        "point" : "-13.12",
+        "fluctuation" : "-7.12%",
+        "id" : "sz000661",
+        "price" : "171.24",
+        "min" : "165.92",
+        "mode" : 1
+      },
+      {
+        "mode" : 1,
+        "min" : "6.41",
+        "name" : "领益智造",
+        "point" : "0.03",
+        "cost" : 0,
+        "max" : "6.57",
+        "id" : "sz002600",
+        "count" : 0,
+        "fluctuation" : "0.46%",
+        "start" : "6.51",
+        "price" : "6.54"
+      },
+      {
+        "count" : 0,
+        "price" : "52.33",
+        "cost" : 0,
+        "point" : "-0.56",
+        "mode" : 1,
+        "start" : "52.75",
+        "name" : "上海机场",
+        "min" : "52.19",
+        "fluctuation" : "-1.06%",
+        "id" : "sh600009",
+        "max" : "53.48"
+      },
+      {
+        "fluctuation" : "-0.86%",
+        "count" : 0,
+        "id" : "sz000001",
+        "name" : "平安银行",
+        "price" : "17.20",
+        "start" : "17.34",
+        "cost" : 0,
+        "max" : "17.38",
+        "min" : "16.98",
+        "mode" : 1,
+        "point" : "-0.15"
+      },
+      {
+        "name" : "山东黄金",
+        "min" : "19.56",
+        "fluctuation" : "-0.61%",
+        "point" : "-0.12",
+        "max" : "19.93",
+        "start" : "19.60",
+        "cost" : 0,
+        "mode" : 1,
+        "id" : "sh600547",
+        "price" : "19.67",
+        "count" : 0
+      },
+      {
+        "id" : "sh603195",
+        "max" : "163.23",
+        "point" : "-3.85",
+        "min" : "158.68",
+        "price" : "159.04",
+        "name" : "公牛集团",
+        "count" : 0,
+        "mode" : 1,
+        "start" : "161.00",
+        "cost" : 0,
+        "fluctuation" : "-2.36%"
+      },
+      {
+        "start" : "184.00",
+        "mode" : 1,
+        "price" : "183.13",
+        "id" : "sz000799",
+        "max" : "185.70",
+        "count" : 0,
+        "fluctuation" : "-0.98%",
+        "name" : "酒鬼酒",
+        "cost" : 0,
+        "point" : "-1.81",
+        "min" : "181.00"
+      },
+      {
+        "mode" : 1,
+        "max" : "8.50",
+        "count" : 0,
+        "id" : "sh603256",
+        "start" : "8.28",
+        "name" : "宏和科技",
+        "cost" : 0,
+        "point" : "0.07",
+        "price" : "8.41",
+        "min" : "8.24",
+        "fluctuation" : "0.84%"
+      }
+    ],
+    "name" : "*********"
+  },
+  {
+    "isSelected" : false,
+    "stocks" : [
+
+    ],
+    "name" : "ETF"
+  }
+]

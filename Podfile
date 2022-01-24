@@ -11,6 +11,8 @@ target 'Fishs' do
   
   pod 'Kingfisher' # Network Image
   
+  pod 'SwiftyJSON' # JSON
+  
   pod 'MJRefresh' # Refresh
   
   pod 'RxSwift' # Reactive

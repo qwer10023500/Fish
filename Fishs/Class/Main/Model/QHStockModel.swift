@@ -129,4 +129,21 @@ extension QHStockModel {
         }
         return stock
     }
+    
+    /** to dictionary */
+    public func _toDictionary() -> [String : Any] {
+        return [
+            "id" : id,
+            "mode" : mode.rawValue,
+            "name" : name,
+            "price" : price,
+            "fluctuation" : fluctuation,
+            "point" : point,
+            "max" : max,
+            "min" : min,
+            "start" : start,
+            "cost" : cost,
+            "count" : count
+        ]
+    }
 }

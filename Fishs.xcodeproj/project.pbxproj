@@ -10,6 +10,7 @@
 		075796D8DD4410A9BAC36EED /* Pods_Fishs.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0561F348373C4A03D29E4FA1 /* Pods_Fishs.framework */; };
 		A039A550279E913C0042AF38 /* QHCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */; };
 		A039A552279E9F490042AF38 /* QHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039A551279E9F490042AF38 /* QHTabBarController.swift */; };
+		A039A558279EAF8A0042AF38 /* stock.json in Resources */ = {isa = PBXBuildFile; fileRef = A039A557279EAF8A0042AF38 /* stock.json */; };
 		A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A9F092696DCC3008817FD /* AppDelegate.swift */; };
 		A06A9F112696DCC3008817FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F0F2696DCC3008817FD /* Main.storyboard */; };
 		A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F122696DCC4008817FD /* Assets.xcassets */; };
@@ -45,6 +46,7 @@
 		929360B9AAD72321E2416359 /* Pods-Fishs.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Fishs.debug.xcconfig"; path = "Target Support Files/Pods-Fishs/Pods-Fishs.debug.xcconfig"; sourceTree = "<group>"; };
 		A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHCalculatorViewController.swift; sourceTree = "<group>"; };
 		A039A551279E9F490042AF38 /* QHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHTabBarController.swift; sourceTree = "<group>"; };
+		A039A557279EAF8A0042AF38 /* stock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stock.json; sourceTree = "<group>"; };
 		A06A9F062696DCC3008817FD /* Fishs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06A9F092696DCC3008817FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06A9F102696DCC3008817FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 				A06A9F122696DCC4008817FD /* Assets.xcassets */,
 				A06A9F142696DCC4008817FD /* LaunchScreen.storyboard */,
 				A06A9F172696DCC4008817FD /* Info.plist */,
+				A039A557279EAF8A0042AF38 /* stock.json */,
 			);
 			path = Resource;
 			sourceTree = "<group>";
@@ -412,6 +415,7 @@
 				A0CEA2522696EA53001DC990 /* QHIndexViewCell.xib in Resources */,
 				A0DD1D2C2697FBFE00100907 /* QHStockViewCell.xib in Resources */,
 				A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */,
+				A039A558279EAF8A0042AF38 /* stock.json in Resources */,
 				A06A9F112696DCC3008817FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
