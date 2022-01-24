@@ -23,7 +23,9 @@ class QHStockTableHeaderViewCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        QHLog(#function)
+        
+        contentView.layer.cornerRadius = 5
+        
         let gesture = UILongPressGestureRecognizer()
         gesture.rx.event.subscribe(onNext: { [weak self] gesture in
             guard let `self` = self, gesture.state == .began else { return }

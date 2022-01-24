@@ -13,19 +13,7 @@ class Defaults: NSObject {
     fileprivate override init() { super.init() }
     
     /** indexs */
-    public var indexs: [QHStockModel] {
-        set {
-            UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: newValue), forKey: #function)
-        }
-        get {
-            let array = [QHStockModel("s_sh000001"), QHStockModel("s_sz399001"), QHStockModel("s_sz399006")]
-            guard let data = UserDefaults.standard.data(forKey: #function) else {
-                UserDefaults.standard.set(NSKeyedArchiver.archivedData(withRootObject: array), forKey: #function)
-                return array
-            }
-            return NSKeyedUnarchiver.unarchiveObject(with: data) as? [QHStockModel] ?? [QHStockModel]()
-        }
-    }
+    public var indexs: [QHStockModel] = [QHStockModel("sh000001"), QHStockModel("sz399001"), QHStockModel("sz399006")]
     
     /** categories */
     public var categories: [QHCategoryModel] {

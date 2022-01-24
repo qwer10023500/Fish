@@ -40,9 +40,6 @@ class QHStockModel: QHBaseModel, NSCoding {
     /** start */
     var start: String = String()
     
-    /** yesterday */
-    var yesterday: String = String()
-    
     /** cost */
     var cost: Double = 0
     
@@ -57,8 +54,7 @@ class QHStockModel: QHBaseModel, NSCoding {
                      point: String = String(),
                      max: String = String(),
                      min: String = String(),
-                     start: String = String(),
-                     yesterday: String = String()) {
+                     start: String = String()) {
         self.init()
         self.id = id
         self.mode = mode
@@ -69,7 +65,6 @@ class QHStockModel: QHBaseModel, NSCoding {
         self.max = max
         self.min = min
         self.start = start
-        self.yesterday = yesterday
     }
     
     override init() { super.init() }
@@ -87,7 +82,6 @@ class QHStockModel: QHBaseModel, NSCoding {
         start = coder.decodeObject(forKey: "start") as? String ?? String()
         cost = coder.decodeDouble(forKey: "cost")
         count = coder.decodeInteger(forKey: "count")
-        yesterday = coder.decodeObject(forKey: "yesterday") as? String ?? String()
     }
     
     func encode(with coder: NSCoder) {
@@ -102,7 +96,6 @@ class QHStockModel: QHBaseModel, NSCoding {
         coder.encode(start, forKey: "start")
         coder.encode(cost, forKey: "cost")
         coder.encode(count, forKey: "count")
-        coder.encode(yesterday, forKey: "yesterday")
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -115,37 +108,25 @@ class QHStockModel: QHBaseModel, NSCoding {
 extension QHStockModel {
     /** parsing */
     public class func parsing(_ value: String) -> QHStockModel {
-        let array = value.replacingOccurrences(of: "var hq_str_", with: "").replacingOccurrences(of: "\"", with: "").components(separatedBy: "=")
+        let array = value.replacingOccurrences(of: "v_", with: "").components(separatedBy: "=")
         var stock = QHStockModel()
-        guard array.count == 2 else { return stock }
+        guard array.count >= 2 else { return stock }
         let id = array[0]
-        if id.contains("s_s") {
-            let list = array[1].components(separatedBy: ",")
-            guard list.count >= 4 else { return stock }
-            stock = QHStockModel(id, mode: .index, name: list[0], price: list[1], fluctuation: String(format: "%@%%", list[3]), point: list[2])
-            return stock
+        let list = array[1].replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: ";", with: "").components(separatedBy: "~")
+        if id == "sh000001" || id == "sz399006" || id == "sz399001" {
+            stock = QHStockModel(id, mode: .index, name: list[1], price: list[3], fluctuation: String(format: "%@%%", list[32]), point: list[31])
         } else {
-            let list = array[1].components(separatedBy: ",")
-            guard list.count >= 6 else { return stock }
-            let yesterday: Double = NSString(string: list[2]).doubleValue
-            let current: Double = NSString(string: list[3]).doubleValue
-            let difference = abs(current - yesterday)
-            var symbol = String()
-            if current >= yesterday {
-                symbol = "+"
-            } else {
-                symbol = "-"
-            }
             stock = QHStockModel(id,
-                          mode: .stock,
-                          name: list[0],
-                          price: current == 0 ? list[2] : list[3],
-                          fluctuation: current == 0 ? "0%" : String(format: "%@%.2f%%", symbol, difference / yesterday * 100.0),
-                          max: list[4],
-                          min: list[5],
-                          start: list[1],
-                          yesterday: list[2])
-            return stock
+                                 mode: .stock,
+                                 name: list[1],
+                                 price: list[3],
+                                 fluctuation: String(format: "%@%%", list[32]),
+                                 point: list[31],
+                                 max: list[33],
+                                 min: list[34],
+                                 start: list[5]
+            )
         }
+        return stock
     }
 }

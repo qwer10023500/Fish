@@ -18,7 +18,7 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Qc5-5d-k6P">
-                        <rect key="frame" x="20" y="5" width="85" height="40"/>
+                        <rect key="frame" x="10" y="5" width="105" height="40"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.0" alpha="0.51133869499560225" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
@@ -29,8 +29,8 @@
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="Qc5-5d-k6P" secondAttribute="bottom" constant="5" id="6Og-2U-cj1"/>
                 <constraint firstItem="Qc5-5d-k6P" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="8Oh-5J-C7B"/>
-                <constraint firstItem="Qc5-5d-k6P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="TLv-8I-Uq4"/>
-                <constraint firstAttribute="trailing" secondItem="Qc5-5d-k6P" secondAttribute="trailing" constant="20" id="nQ3-1F-axA"/>
+                <constraint firstItem="Qc5-5d-k6P" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="TLv-8I-Uq4"/>
+                <constraint firstAttribute="trailing" secondItem="Qc5-5d-k6P" secondAttribute="trailing" constant="10" id="nQ3-1F-axA"/>
             </constraints>
             <size key="customSize" width="125" height="50"/>
             <connections>

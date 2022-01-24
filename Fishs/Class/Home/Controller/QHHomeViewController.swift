@@ -35,8 +35,19 @@ class QHHomeViewController: QHBaseViewController {
     /** stock */
     @IBOutlet weak var stockView: UITableView!
     
+    /** titleView */
+    fileprivate lazy var titleView: UILabel = {
+        let view = UILabel()
+        view.font = UIFont.systemFont(ofSize: 12)
+        view.textAlignment = .center
+        view.frame = CGRect(origin: CGPoint.zero, size: CGSize(width: 300, height: 64))
+        return view
+    }()
+    
     override func structureUI() {
         super.structureUI()
+        
+        navigationItem.titleView = titleView
         
         indexView.register(R.nib.qhIndexViewCell)
         stockView.register(R.nib.qhStockViewCell)
@@ -65,6 +76,14 @@ class QHHomeViewController: QHBaseViewController {
             self.indexView.reloadData()
             self.stockView.reloadData()
             self.stockView.mj_header?.endRefreshing()
+            
+            var value: Double = 0
+            for stock in self.category().stocks {
+                guard let price = Double(stock.price), stock.cost != 0 && stock.count != 0 else { continue }
+                value += (price - stock.cost) * Double(stock.count)
+            }
+            self.titleView.text = String(format: "%.2f", value)
+            self.titleView.textColor = value < 0 ? UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1) : UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
             self.update()
         }).disposed(by: rx.disposeBag)
         
@@ -105,7 +124,7 @@ class QHHomeViewController: QHBaseViewController {
         let alertAction = UIAlertAction(title: "Done", style: .default) { [weak controller] _ in
             guard let `controller` = controller, let text = controller.textFields?.first?.text else { return }
             var string = text
-            if text.hasPrefix("6") {
+            if text.hasPrefix("6") || text.hasPrefix("5") {
                 string = "sh\(text)"
             } else if text.hasPrefix("0") || text.hasPrefix("3") || text.hasPrefix("1") {
                 string = "sz\(text)"
@@ -123,7 +142,7 @@ class QHHomeViewController: QHBaseViewController {
             }).disposed(by: rx.disposeBag)
             
             textField.rx.text.orEmpty.map { text -> Bool in
-                return text.count >= 6 && (text.hasPrefix("6") || text.hasPrefix("0") || text.hasPrefix("3") || text.hasPrefix("1"))
+                return text.count >= 6 && (text.hasPrefix("6") || text.hasPrefix("0") || text.hasPrefix("3") || text.hasPrefix("1") || text.hasPrefix("5"))
             }.bind(to: alertAction.rx.isEnabled)
             .disposed(by: rx.disposeBag)
         }

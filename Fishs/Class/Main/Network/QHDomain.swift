@@ -16,7 +16,7 @@ extension QHDomain: TargetType {
     var baseURL: URL {
         switch self {
         case .market(let ids):
-            return URL(string: "https://hq.sinajs.cn/list=\(ids.joined(separator: ","))")!
+            return URL(string: "http://qt.gtimg.cn/q=\(ids.joined(separator: ","))")!
         }
     }
     
