@@ -132,20 +132,6 @@ class QHHomeViewController: QHBaseViewController {
             self.viewModel.input.check.onNext(string)
         }
         controller.addAction(alertAction)
-        if let textField = controller.textFields?.first {
-            textField.rx.text.orEmpty.map { (text) -> Bool in
-                return text.count >= 6
-            }.share(replay: 1, scope: .whileConnected)
-            .subscribe(onNext: { (event) in
-                guard let text = textField.text, event == true else { return }
-                textField.text = String(text[text.startIndex...text.index(text.startIndex, offsetBy: 5)])
-            }).disposed(by: rx.disposeBag)
-            
-            textField.rx.text.orEmpty.map { text -> Bool in
-                return text.count >= 6 && (text.hasPrefix("6") || text.hasPrefix("0") || text.hasPrefix("3") || text.hasPrefix("1") || text.hasPrefix("5"))
-            }.bind(to: alertAction.rx.isEnabled)
-            .disposed(by: rx.disposeBag)
-        }
         present(controller, animated: true, completion: nil)
     }
     
