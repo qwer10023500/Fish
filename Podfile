@@ -9,7 +9,7 @@ target 'Fishs' do
   # Pods for Fishs
   pod 'Moya' # Network
   
-  pod 'Kingfisher' # Network Image
+  pod 'SDWebImage' # WebImage
   
   pod 'SwiftyJSON' # JSON
   

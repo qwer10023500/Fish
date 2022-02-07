@@ -86,10 +86,11 @@ class QHCalculatorViewController: QHBaseViewController {
         var profit: Double = 0
         var string = String()
         for i in 1...trade {
-            profit += total * target / 100
+            let currentProfit = total * target / 100
+            profit += currentProfit
             change = money + profit
             total = change + change * financing / 100
-            string.append(String(format: "第%ld次交易~~当次获利：%.2f~~当前本金：%.2f\n", i, profit, total - change * financing / 100))
+            string.append(String(format: "第%ld次交易~~当次获利：%.2f~~当前本金：%.2f\n", i, currentProfit, total - change * financing / 100))
         }
         resultView.text = string
     }

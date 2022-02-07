@@ -11,6 +11,9 @@
 		A039A550279E913C0042AF38 /* QHCalculatorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */; };
 		A039A552279E9F490042AF38 /* QHTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A039A551279E9F490042AF38 /* QHTabBarController.swift */; };
 		A039A558279EAF8A0042AF38 /* stock.json in Resources */ = {isa = PBXBuildFile; fileRef = A039A557279EAF8A0042AF38 /* stock.json */; };
+		A042EF1027B10F4600341835 /* QHHomeMoveViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042EF0F27B10F4600341835 /* QHHomeMoveViewController.swift */; };
+		A042EF1527B118E800341835 /* QHMoveViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A042EF1327B118E800341835 /* QHMoveViewCell.swift */; };
+		A042EF1627B118E800341835 /* QHMoveViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A042EF1427B118E800341835 /* QHMoveViewCell.xib */; };
 		A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A06A9F092696DCC3008817FD /* AppDelegate.swift */; };
 		A06A9F112696DCC3008817FD /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F0F2696DCC3008817FD /* Main.storyboard */; };
 		A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F122696DCC4008817FD /* Assets.xcassets */; };
@@ -47,6 +50,9 @@
 		A039A54F279E913C0042AF38 /* QHCalculatorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHCalculatorViewController.swift; sourceTree = "<group>"; };
 		A039A551279E9F490042AF38 /* QHTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHTabBarController.swift; sourceTree = "<group>"; };
 		A039A557279EAF8A0042AF38 /* stock.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = stock.json; sourceTree = "<group>"; };
+		A042EF0F27B10F4600341835 /* QHHomeMoveViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeMoveViewController.swift; sourceTree = "<group>"; };
+		A042EF1327B118E800341835 /* QHMoveViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHMoveViewCell.swift; sourceTree = "<group>"; };
+		A042EF1427B118E800341835 /* QHMoveViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHMoveViewCell.xib; sourceTree = "<group>"; };
 		A06A9F062696DCC3008817FD /* Fishs.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Fishs.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A06A9F092696DCC3008817FD /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A06A9F102696DCC3008817FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -176,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				A0CEA24D2696E8FC001DC990 /* QHHomeViewController.swift */,
+				A042EF0F27B10F4600341835 /* QHHomeMoveViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -198,6 +205,8 @@
 				A0DD1D2A2697FBFE00100907 /* QHStockViewCell.xib */,
 				A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */,
 				A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */,
+				A042EF1327B118E800341835 /* QHMoveViewCell.swift */,
+				A042EF1427B118E800341835 /* QHMoveViewCell.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -416,6 +425,7 @@
 				A0DD1D2C2697FBFE00100907 /* QHStockViewCell.xib in Resources */,
 				A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */,
 				A039A558279EAF8A0042AF38 /* stock.json in Resources */,
+				A042EF1627B118E800341835 /* QHMoveViewCell.xib in Resources */,
 				A06A9F112696DCC3008817FD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -507,9 +517,11 @@
 				A06A9F0A2696DCC3008817FD /* AppDelegate.swift in Sources */,
 				A0CEA2482696E230001DC990 /* QHConfiguration.swift in Sources */,
 				A0CEA24A2696E25E001DC990 /* QHStockModel.swift in Sources */,
+				A042EF1027B10F4600341835 /* QHHomeMoveViewController.swift in Sources */,
 				A084E844269D491B002A8253 /* QHDetailWebViewController.swift in Sources */,
 				A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */,
 				A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */,
+				A042EF1527B118E800341835 /* QHMoveViewCell.swift in Sources */,
 				A0CEA2432696E230001DC990 /* QHBaseViewController.swift in Sources */,
 				A039A550279E913C0042AF38 /* QHCalculatorViewController.swift in Sources */,
 				A0DD1D3A2698329900100907 /* QHStockTableHeaderViewCell.swift in Sources */,

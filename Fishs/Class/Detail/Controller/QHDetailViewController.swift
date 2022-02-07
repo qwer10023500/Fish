@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kingfisher
+import SDWebImage
 
 class QHDetailViewController: QHBaseViewController {
 
@@ -62,13 +62,13 @@ extension QHDetailViewController {
         let id = stock.id.replacingOccurrences(of: "s_", with: "")
         switch segmentedControl.selectedSegmentIndex {
         case 0:
-            imageView.kf.setImage(with: URL(string: "https://image.sinajs.cn/newchart/min/n/\(id).gif"), options: [.forceRefresh])
+            imageView.sd_setImage(with: URL(string: "https://image.sinajs.cn/newchart/min/n/\(id).gif"), placeholderImage: nil, options: .refreshCached)
         case 1:
-            imageView.kf.setImage(with: URL(string: "https://image.sinajs.cn/newchart/daily/n/\(id).gif"), options: [.forceRefresh])
+            imageView.sd_setImage(with: URL(string: "https://image.sinajs.cn/newchart/daily/n/\(id).gif"), placeholderImage: nil, options: .refreshCached)
         case 2:
-            imageView.kf.setImage(with: URL(string: "https://image.sinajs.cn/newchart/weekly/n/\(id).gif"), options: [.forceRefresh])
+            imageView.sd_setImage(with: URL(string: "https://image.sinajs.cn/newchart/weekly/n/\(id).gif"), placeholderImage: nil, options: .refreshCached)
         case 3:
-            imageView.kf.setImage(with: URL(string: "https://image.sinajs.cn/newchart/monthly/n/\(id).gif"), options: [.forceRefresh])
+            imageView.sd_setImage(with: URL(string: "https://image.sinajs.cn/newchart/monthly/n/\(id).gif"), placeholderImage: nil, options: .refreshCached)
         default:
             break
         }

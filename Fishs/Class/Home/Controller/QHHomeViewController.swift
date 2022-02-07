@@ -264,6 +264,16 @@ extension QHHomeViewController: QHHomeTableHeaderViewDelegate {
         present(controller, animated: true, completion: nil)
     }
     
+    func move(_ tableHeaderView: QHHomeTableHeaderView) {
+        guard let controller = R.storyboard.main.qhHomeMoveViewController() else { return }
+        controller.callBack = { [weak self] in
+            guard let `self` = self else { return }
+            self.stockView.reloadData()
+            tableHeaderView.collectionView.reloadData()
+        }
+        navigationController?.pushViewController(controller, animated: true)
+    }
+    
     func selectItem(_ tableHeaderView: QHHomeTableHeaderView, indexPath: IndexPath) {
         viewModel.input.stocks.onNext(home)
         disposeBag = DisposeBag()

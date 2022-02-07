@@ -153,10 +153,21 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 1 images.
+  /// This `R.image` struct is generated, and contains static references to 3 images.
   struct image {
+    /// Image `add`.
+    static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
     /// Image `launch`.
     static let launch = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch")
+    /// Image `move`.
+    static let move = Rswift.ImageResource(bundle: R.hostingBundle, name: "move")
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "add", bundle: ..., traitCollection: ...)`
+    static func add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "launch", bundle: ..., traitCollection: ...)`
@@ -165,13 +176,22 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "move", bundle: ..., traitCollection: ...)`
+    static func move(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.move, compatibleWith: traitCollection)
+    }
+    #endif
+
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 3 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
   struct nib {
     /// Nib `QHIndexViewCell`.
     static let qhIndexViewCell = _R.nib._QHIndexViewCell()
+    /// Nib `QHMoveViewCell`.
+    static let qhMoveViewCell = _R.nib._QHMoveViewCell()
     /// Nib `QHStockTableHeaderViewCell`.
     static let qhStockTableHeaderViewCell = _R.nib._QHStockTableHeaderViewCell()
     /// Nib `QHStockViewCell`.
@@ -182,6 +202,14 @@ struct R: Rswift.Validatable {
     @available(*, deprecated, message: "Use UINib(resource: R.nib.qhIndexViewCell) instead")
     static func qhIndexViewCell(_: Void = ()) -> UIKit.UINib {
       return UIKit.UINib(resource: R.nib.qhIndexViewCell)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QHMoveViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.qhMoveViewCell) instead")
+    static func qhMoveViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.qhMoveViewCell)
     }
     #endif
 
@@ -205,6 +233,10 @@ struct R: Rswift.Validatable {
       return R.nib.qhIndexViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHIndexViewCell
     }
 
+    static func qhMoveViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHMoveViewCell? {
+      return R.nib.qhMoveViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHMoveViewCell
+    }
+
     static func qhStockTableHeaderViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHStockTableHeaderViewCell? {
       return R.nib.qhStockTableHeaderViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHStockTableHeaderViewCell
     }
@@ -216,10 +248,12 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 3 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
   struct reuseIdentifier {
     /// Reuse identifier `QHIndexViewCell`.
     static let qhIndexViewCell: Rswift.ReuseIdentifier<QHIndexViewCell> = Rswift.ReuseIdentifier(identifier: "QHIndexViewCell")
+    /// Reuse identifier `QHMoveViewCell`.
+    static let qhMoveViewCell: Rswift.ReuseIdentifier<QHMoveViewCell> = Rswift.ReuseIdentifier(identifier: "QHMoveViewCell")
     /// Reuse identifier `QHStockTableHeaderViewCell`.
     static let qhStockTableHeaderViewCell: Rswift.ReuseIdentifier<QHStockTableHeaderViewCell> = Rswift.ReuseIdentifier(identifier: "QHStockTableHeaderViewCell")
     /// Reuse identifier `QHStockViewCell`.
@@ -259,6 +293,20 @@ struct _R: Rswift.Validatable {
 
       func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHIndexViewCell? {
         return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHIndexViewCell
+      }
+
+      fileprivate init() {}
+    }
+
+    struct _QHMoveViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = QHMoveViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "QHMoveViewCell"
+      let name = "QHMoveViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHMoveViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHMoveViewCell
       }
 
       fileprivate init() {}
@@ -330,15 +378,21 @@ struct _R: Rswift.Validatable {
       let bundle = R.hostingBundle
       let name = "Main"
       let qhDetailViewController = StoryboardViewControllerResource<QHDetailViewController>(identifier: "QHDetailViewController")
+      let qhHomeMoveViewController = StoryboardViewControllerResource<QHHomeMoveViewController>(identifier: "QHHomeMoveViewController")
 
       func qhDetailViewController(_: Void = ()) -> QHDetailViewController? {
         return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: qhDetailViewController)
+      }
+
+      func qhHomeMoveViewController(_: Void = ()) -> QHHomeMoveViewController? {
+        return UIKit.UIStoryboard(resource: self).instantiateViewController(withResource: qhHomeMoveViewController)
       }
 
       static func validate() throws {
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().qhDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'qhDetailViewController' could not be loaded from storyboard 'Main' as 'QHDetailViewController'.") }
+        if _R.storyboard.main().qhHomeMoveViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'qhHomeMoveViewController' could not be loaded from storyboard 'Main' as 'QHHomeMoveViewController'.") }
       }
 
       fileprivate init() {}

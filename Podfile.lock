@@ -1,6 +1,5 @@
 PODS:
   - Alamofire (5.5.0)
-  - Kingfisher (6.3.1)
   - MJRefresh (3.7.5)
   - Moya (15.0.0):
     - Moya/Core (= 15.0.0)
@@ -17,24 +16,26 @@ PODS:
   - RxRelay (6.5.0):
     - RxSwift (= 6.5.0)
   - RxSwift (6.5.0)
+  - SDWebImage (5.12.3):
+    - SDWebImage/Core (= 5.12.3)
+  - SDWebImage/Core (5.12.3)
   - SnapKit (5.0.1)
   - SwiftyJSON (5.0.1)
 
 DEPENDENCIES:
-  - Kingfisher
   - MJRefresh
   - Moya
   - "NSObject+Rx"
   - R.swift
   - RxCocoa
   - RxSwift
+  - SDWebImage
   - SnapKit
   - SwiftyJSON
 
 SPEC REPOS:
   trunk:
     - Alamofire
-    - Kingfisher
     - MJRefresh
     - Moya
     - "NSObject+Rx"
@@ -43,12 +44,12 @@ SPEC REPOS:
     - RxCocoa
     - RxRelay
     - RxSwift
+    - SDWebImage
     - SnapKit
     - SwiftyJSON
 
 SPEC CHECKSUMS:
   Alamofire: 1c4fb5369c3fe93d2857c780d8bbe09f06f97e7c
-  Kingfisher: 016c8b653a35add51dd34a3aba36b580041acc74
   MJRefresh: fdf5e979eb406a0341468932d1dfc8b7f9fce961
   Moya: 138f0573e53411fb3dc17016add0b748dfbd78ee
   "NSObject+Rx": 61cf1f7306a73dcef8b36649198af0813ec18dfd
@@ -57,9 +58,10 @@ SPEC CHECKSUMS:
   RxCocoa: 94f817b71c07517321eb4f9ad299112ca8af743b
   RxRelay: 1de1523e604c72b6c68feadedd1af3b1b4d0ecbd
   RxSwift: 5710a9e6b17f3c3d6e40d6e559b9fa1e813b2ef8
+  SDWebImage: 53179a2dba77246efa8a9b85f5c5b21f8f43e38f
   SnapKit: 97b92857e3df3a0c71833cce143274bf6ef8e5eb
   SwiftyJSON: 2f33a42c6fbc52764d96f13368585094bfd8aa5e
 
-PODFILE CHECKSUM: 1759066e6b8fa8c61b294bc80176c96b0a470d5d
+PODFILE CHECKSUM: f2df96306ec88a58fb786ec3e87040f29b2fa508
 
 COCOAPODS: 1.11.2

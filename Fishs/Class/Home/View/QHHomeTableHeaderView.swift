@@ -10,6 +10,8 @@ import UIKit
 @objc protocol QHHomeTableHeaderViewDelegate {
     func add(_ tableHeaderView: QHHomeTableHeaderView)
     
+    func move(_ tableHeaderView: QHHomeTableHeaderView)
+    
     func selectItem(_ tableHeaderView: QHHomeTableHeaderView, indexPath: IndexPath)
 }
 
@@ -28,7 +30,9 @@ class QHHomeTableHeaderView: UIView {
         let layout = UICollectionViewFlowLayout()
         layout.estimatedItemSize = CGSize(width: 100, height: 40)
         layout.scrollDirection = .horizontal
-        layout.sectionInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
+        layout.sectionInset = UIEdgeInsets(top: 0, left: 10, bottom: 0, right: 10)
+        layout.minimumLineSpacing = 0
+        layout.minimumInteritemSpacing = 0
         let view = UICollectionView(frame: CGRect.zero, collectionViewLayout: layout)
         view.showsHorizontalScrollIndicator = false
         view.backgroundColor = UIColor.clear
@@ -38,11 +42,22 @@ class QHHomeTableHeaderView: UIView {
         return view
     }()
     
-    fileprivate(set) lazy var button: UIButton = {
-        let view = UIButton(type: .contactAdd)
+    fileprivate(set) lazy var addView: UIButton = {
+        let view = UIButton(type: .custom)
+        view.setImage(R.image.add(), for: .normal)
         view.rx.tap.subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
             self.delegate?.add(self)
+        }).disposed(by: rx.disposeBag)
+        return view
+    }()
+    
+    fileprivate(set) lazy var moveView: UIButton = {
+        let view = UIButton(type: .custom)
+        view.setImage(R.image.move(), for: .normal)
+        view.rx.tap.subscribe(onNext: { [weak self] _ in
+            guard let `self` = self else { return }
+            self.delegate?.move(self)
         }).disposed(by: rx.disposeBag)
         return view
     }()
@@ -65,17 +80,24 @@ extension QHHomeTableHeaderView {
     /** UI */
     fileprivate func structureUI() {
         addSubview(collectionView)
-        addSubview(button)
+        addSubview(moveView)
+        addSubview(addView)
         
-        button.snp.makeConstraints { make in
+        moveView.snp.makeConstraints { make in
             make.width.height.equalTo(40)
             make.centerY.equalToSuperview()
             make.right.equalToSuperview()
         }
         
+        addView.snp.makeConstraints { make in
+            make.width.height.equalTo(40)
+            make.centerY.equalToSuperview()
+            make.right.equalTo(moveView.snp.left)
+        }
+        
         collectionView.snp.makeConstraints { make in
             make.left.top.bottom.equalToSuperview()
-            make.right.equalTo(button.snp.left)
+            make.right.equalTo(addView.snp.left)
         }
     }
 }
