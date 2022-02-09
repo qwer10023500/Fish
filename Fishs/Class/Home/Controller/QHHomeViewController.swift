@@ -35,6 +35,9 @@ class QHHomeViewController: QHBaseViewController {
     /** stock */
     @IBOutlet weak var stockView: UITableView!
     
+    /** isViewWillAppear */
+    fileprivate var isViewWillAppear: Bool = false
+    
     /** titleView */
     fileprivate lazy var titleView: UILabel = {
         let view = UILabel()
@@ -138,6 +141,16 @@ class QHHomeViewController: QHBaseViewController {
     @IBAction func editAction(_ sender: UIBarButtonItem) {
         stockView.setEditing(!stockView.isEditing, animated: true)
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        isViewWillAppear = true
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        isViewWillAppear = false
+    }
 }
 
 // MARK: Private
@@ -153,7 +166,7 @@ extension QHHomeViewController {
         guard isTransactionTime(start: "09:30:00", end: "11:30:00") || isTransactionTime(start: "13:00:00", end: "14:57:00") else { return }
         Observable.just(()).delay(.milliseconds(15 * 100), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
-            guard !self.stockView.isEditing else {
+            guard !self.stockView.isEditing && self.isViewWillAppear == true else {
                 self.update()
                 return
             }

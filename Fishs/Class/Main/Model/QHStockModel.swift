@@ -7,6 +7,33 @@
 
 import UIKit
 
+class QHTradeModel: QHBaseModel, NSCoding {
+    /** price */
+    var price: String = String()
+    
+    /** count */
+    var count: String = String()
+    
+    convenience init(_ price: String, count: String) {
+        self.init()
+        self.price = price
+        self.count = count
+    }
+    
+    override init() { super.init() }
+    
+    required init?(coder: NSCoder) {
+        super.init()
+        price = coder.decodeObject(forKey: "price") as? String ?? String()
+        count = coder.decodeObject(forKey: "count") as? String ?? String()
+    }
+    
+    func encode(with coder: NSCoder) {
+        coder.encode(price, forKey: "price")
+        coder.encode(count, forKey: "count")
+    }
+}
+
 class QHStockModel: QHBaseModel, NSCoding {
     enum Mode: Int {
         case index = 0
@@ -40,11 +67,20 @@ class QHStockModel: QHBaseModel, NSCoding {
     /** start */
     var start: String = String()
     
+    /** yesterday */
+    var yesterday: String = String()
+    
     /** cost */
     var cost: Double = 0
     
     /** count */
     var count: Int = 0
+    
+    /** buys */
+    var buys: [QHTradeModel] = [QHTradeModel]()
+    
+    /** sells */
+    var sells: [QHTradeModel] = [QHTradeModel]()
     
     convenience init(_ id: String,
                      mode: QHStockModel.Mode = .stock,
@@ -54,7 +90,8 @@ class QHStockModel: QHBaseModel, NSCoding {
                      point: String = String(),
                      max: String = String(),
                      min: String = String(),
-                     start: String = String()) {
+                     start: String = String(),
+                     yesterday: String = String()) {
         self.init()
         self.id = id
         self.mode = mode
@@ -65,6 +102,7 @@ class QHStockModel: QHBaseModel, NSCoding {
         self.max = max
         self.min = min
         self.start = start
+        self.yesterday = yesterday
     }
     
     override init() { super.init() }
@@ -80,6 +118,9 @@ class QHStockModel: QHBaseModel, NSCoding {
         max = coder.decodeObject(forKey: "max") as? String ?? String()
         min = coder.decodeObject(forKey: "min") as? String ?? String()
         start = coder.decodeObject(forKey: "start") as? String ?? String()
+        yesterday = coder.decodeObject(forKey: "yesterday") as? String ?? String()
+        buys = coder.decodeObject(forKey: "buys") as? [QHTradeModel] ?? [QHTradeModel]()
+        sells = coder.decodeObject(forKey: "sells") as? [QHTradeModel] ?? [QHTradeModel]()
         cost = coder.decodeDouble(forKey: "cost")
         count = coder.decodeInteger(forKey: "count")
     }
@@ -94,8 +135,11 @@ class QHStockModel: QHBaseModel, NSCoding {
         coder.encode(max, forKey: "max")
         coder.encode(min, forKey: "min")
         coder.encode(start, forKey: "start")
+        coder.encode(yesterday, forKey: "yesterday")
         coder.encode(cost, forKey: "cost")
         coder.encode(count, forKey: "count")
+        coder.encode(buys, forKey: "buys")
+        coder.encode(sells, forKey: "sells")
     }
     
     override func isEqual(_ object: Any?) -> Bool {
@@ -124,26 +168,24 @@ extension QHStockModel {
                                  point: list[31],
                                  max: list[33],
                                  min: list[34],
-                                 start: list[5]
+                                 start: list[5],
+                                 yesterday: list[4]
             )
+            stock.buys = [
+                QHTradeModel(list[9], count: list[10]),
+                QHTradeModel(list[11], count: list[12]),
+                QHTradeModel(list[13], count: list[14]),
+                QHTradeModel(list[15], count: list[16]),
+                QHTradeModel(list[17], count: list[18])
+            ]
+            stock.sells = [
+                QHTradeModel(list[19], count: list[20]),
+                QHTradeModel(list[21], count: list[22]),
+                QHTradeModel(list[23], count: list[24]),
+                QHTradeModel(list[25], count: list[26]),
+                QHTradeModel(list[27], count: list[28])
+            ]
         }
         return stock
-    }
-    
-    /** to dictionary */
-    public func _toDictionary() -> [String : Any] {
-        return [
-            "id" : id,
-            "mode" : mode.rawValue,
-            "name" : name,
-            "price" : price,
-            "fluctuation" : fluctuation,
-            "point" : point,
-            "max" : max,
-            "min" : min,
-            "start" : start,
-            "cost" : cost,
-            "count" : count
-        ]
     }
 }

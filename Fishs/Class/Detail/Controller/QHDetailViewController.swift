@@ -23,6 +23,9 @@ class QHDetailViewController: QHBaseViewController {
     override func structureUI() {
         super.structureUI()
         
+        navigationItem.title = stock.name
+        navigationItem.rightBarButtonItem = UIBarButtonItem(title: "News", style: .plain, target: self, action: #selector(QHDetailViewController.newsAction(_:)))
+        
         if stock.count != 0 { countView.text = String(stock.count) }
         
         if stock.cost != 0 { costView.text = String(stock.cost) }
@@ -39,7 +42,6 @@ class QHDetailViewController: QHBaseViewController {
                 guard stock == item else { continue }
                 if let text = countView.text, let count = Int(text) { item.count = count }
                 if let text = costView.text, let cost = Double(text) { item.cost = cost }
-                break
             }
         }
         Defaults.shared.categories = categories
@@ -49,7 +51,7 @@ class QHDetailViewController: QHBaseViewController {
         kImage()
     }
     
-    @IBAction func newsAction(_ sender: UIButton) {
+    @objc fileprivate func newsAction(_ sender: UIBarButtonItem) {
         let id = stock.id.trimmingCharacters(in: CharacterSet.decimalDigits.inverted)
         let controller = QHDetailWebViewController(URL(string: "http://stockpage.10jqka.com.cn/\(id)"))
         navigationController?.pushViewController(controller, animated: true)

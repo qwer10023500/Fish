@@ -39,15 +39,3 @@ class QHCategoryModel: QHBaseModel, NSCoding {
         coder.encode(isSelected, forKey: "isSelected")
     }
 }
-
-// MARK: Public
-extension QHCategoryModel {
-    /** to dictionary */
-    public func _toDictionary() -> [String : Any] {
-        return [
-            "name" : name,
-            "stocks" : stocks.map({ stock in return stock._toDictionary() }),
-            "isSelected" : isSelected
-        ]
-    }
-}

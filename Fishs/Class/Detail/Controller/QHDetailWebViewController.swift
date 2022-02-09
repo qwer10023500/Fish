@@ -6,12 +6,17 @@
 //
 
 import UIKit
+import RxSwift
+import RxCocoa
+import NSObject_Rx
 import WebKit
 
 class QHDetailWebViewController: QHWebViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        navigationController?.navigationBar.backgroundColor = UIColor.white
         
         let leftItem = UIBarButtonItem(title: "back", style: .done, target: nil, action: nil)
         leftItem.rx.tap.subscribe(onNext: { [weak self] _ in

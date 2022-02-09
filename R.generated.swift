@@ -153,19 +153,39 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.image` struct is generated, and contains static references to 3 images.
+  /// This `R.image` struct is generated, and contains static references to 6 images.
   struct image {
     /// Image `add`.
     static let add = Rswift.ImageResource(bundle: R.hostingBundle, name: "add")
+    /// Image `calculator`.
+    static let calculator = Rswift.ImageResource(bundle: R.hostingBundle, name: "calculator")
+    /// Image `home`.
+    static let home = Rswift.ImageResource(bundle: R.hostingBundle, name: "home")
     /// Image `launch`.
     static let launch = Rswift.ImageResource(bundle: R.hostingBundle, name: "launch")
     /// Image `move`.
     static let move = Rswift.ImageResource(bundle: R.hostingBundle, name: "move")
+    /// Image `news`.
+    static let news = Rswift.ImageResource(bundle: R.hostingBundle, name: "news")
 
     #if os(iOS) || os(tvOS)
     /// `UIImage(named: "add", bundle: ..., traitCollection: ...)`
     static func add(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.add, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "calculator", bundle: ..., traitCollection: ...)`
+    static func calculator(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.calculator, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "home", bundle: ..., traitCollection: ...)`
+    static func home(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.home, compatibleWith: traitCollection)
     }
     #endif
 
@@ -180,6 +200,13 @@ struct R: Rswift.Validatable {
     /// `UIImage(named: "move", bundle: ..., traitCollection: ...)`
     static func move(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
       return UIKit.UIImage(resource: R.image.move, compatibleWith: traitCollection)
+    }
+    #endif
+
+    #if os(iOS) || os(tvOS)
+    /// `UIImage(named: "news", bundle: ..., traitCollection: ...)`
+    static func news(compatibleWith traitCollection: UIKit.UITraitCollection? = nil) -> UIKit.UIImage? {
+      return UIKit.UIImage(resource: R.image.news, compatibleWith: traitCollection)
     }
     #endif
 
@@ -389,6 +416,9 @@ struct _R: Rswift.Validatable {
       }
 
       static func validate() throws {
+        if UIKit.UIImage(named: "calculator", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'calculator' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "home", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'home' is used in storyboard 'Main', but couldn't be loaded.") }
+        if UIKit.UIImage(named: "news", in: R.hostingBundle, compatibleWith: nil) == nil { throw Rswift.ValidationError(description: "[R.swift] Image named 'news' is used in storyboard 'Main', but couldn't be loaded.") }
         if #available(iOS 11.0, tvOS 11.0, *) {
         }
         if _R.storyboard.main().qhDetailViewController() == nil { throw Rswift.ValidationError(description:"[R.swift] ViewController with identifier 'qhDetailViewController' could not be loaded from storyboard 'Main' as 'QHDetailViewController'.") }
