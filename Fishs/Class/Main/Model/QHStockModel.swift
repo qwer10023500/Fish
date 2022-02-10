@@ -8,14 +8,18 @@
 import UIKit
 
 class QHTradeModel: QHBaseModel, NSCoding {
+    /** name */
+    var name: String = String()
+    
     /** price */
     var price: String = String()
     
     /** count */
     var count: String = String()
     
-    convenience init(_ price: String, count: String) {
+    convenience init(_ name: String, price: String, count: String) {
         self.init()
+        self.name = name
         self.price = price
         self.count = count
     }
@@ -24,11 +28,13 @@ class QHTradeModel: QHBaseModel, NSCoding {
     
     required init?(coder: NSCoder) {
         super.init()
+        name = coder.decodeObject(forKey: "name") as? String ?? String()
         price = coder.decodeObject(forKey: "price") as? String ?? String()
         count = coder.decodeObject(forKey: "count") as? String ?? String()
     }
     
     func encode(with coder: NSCoder) {
+        coder.encode(name, forKey: "name")
         coder.encode(price, forKey: "price")
         coder.encode(count, forKey: "count")
     }
@@ -172,18 +178,18 @@ extension QHStockModel {
                                  yesterday: list[4]
             )
             stock.buys = [
-                QHTradeModel(list[9], count: list[10]),
-                QHTradeModel(list[11], count: list[12]),
-                QHTradeModel(list[13], count: list[14]),
-                QHTradeModel(list[15], count: list[16]),
-                QHTradeModel(list[17], count: list[18])
+                QHTradeModel("买 1", price: list[9], count: list[10]),
+                QHTradeModel("买 2", price: list[11], count: list[12]),
+                QHTradeModel("买 3", price: list[13], count: list[14]),
+                QHTradeModel("买 4", price: list[15], count: list[16]),
+                QHTradeModel("买 5", price: list[17], count: list[18])
             ]
             stock.sells = [
-                QHTradeModel(list[19], count: list[20]),
-                QHTradeModel(list[21], count: list[22]),
-                QHTradeModel(list[23], count: list[24]),
-                QHTradeModel(list[25], count: list[26]),
-                QHTradeModel(list[27], count: list[28])
+                QHTradeModel("卖 1", price: list[19], count: list[20]),
+                QHTradeModel("卖 2", price: list[21], count: list[22]),
+                QHTradeModel("卖 3", price: list[23], count: list[24]),
+                QHTradeModel("卖 4", price: list[25], count: list[26]),
+                QHTradeModel("卖 5", price: list[27], count: list[28])
             ]
         }
         return stock

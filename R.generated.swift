@@ -213,8 +213,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.nib` struct is generated, and contains static references to 4 nibs.
+  /// This `R.nib` struct is generated, and contains static references to 5 nibs.
   struct nib {
+    /// Nib `QHDetailViewCell`.
+    static let qhDetailViewCell = _R.nib._QHDetailViewCell()
     /// Nib `QHIndexViewCell`.
     static let qhIndexViewCell = _R.nib._QHIndexViewCell()
     /// Nib `QHMoveViewCell`.
@@ -223,6 +225,14 @@ struct R: Rswift.Validatable {
     static let qhStockTableHeaderViewCell = _R.nib._QHStockTableHeaderViewCell()
     /// Nib `QHStockViewCell`.
     static let qhStockViewCell = _R.nib._QHStockViewCell()
+
+    #if os(iOS) || os(tvOS)
+    /// `UINib(name: "QHDetailViewCell", in: bundle)`
+    @available(*, deprecated, message: "Use UINib(resource: R.nib.qhDetailViewCell) instead")
+    static func qhDetailViewCell(_: Void = ()) -> UIKit.UINib {
+      return UIKit.UINib(resource: R.nib.qhDetailViewCell)
+    }
+    #endif
 
     #if os(iOS) || os(tvOS)
     /// `UINib(name: "QHIndexViewCell", in: bundle)`
@@ -256,6 +266,10 @@ struct R: Rswift.Validatable {
     }
     #endif
 
+    static func qhDetailViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHDetailViewCell? {
+      return R.nib.qhDetailViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHDetailViewCell
+    }
+
     static func qhIndexViewCell(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHIndexViewCell? {
       return R.nib.qhIndexViewCell.instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHIndexViewCell
     }
@@ -275,8 +289,10 @@ struct R: Rswift.Validatable {
     fileprivate init() {}
   }
 
-  /// This `R.reuseIdentifier` struct is generated, and contains static references to 4 reuse identifiers.
+  /// This `R.reuseIdentifier` struct is generated, and contains static references to 5 reuse identifiers.
   struct reuseIdentifier {
+    /// Reuse identifier `QHDetailViewCell`.
+    static let qhDetailViewCell: Rswift.ReuseIdentifier<QHDetailViewCell> = Rswift.ReuseIdentifier(identifier: "QHDetailViewCell")
     /// Reuse identifier `QHIndexViewCell`.
     static let qhIndexViewCell: Rswift.ReuseIdentifier<QHIndexViewCell> = Rswift.ReuseIdentifier(identifier: "QHIndexViewCell")
     /// Reuse identifier `QHMoveViewCell`.
@@ -311,6 +327,20 @@ struct _R: Rswift.Validatable {
 
   #if os(iOS) || os(tvOS)
   struct nib {
+    struct _QHDetailViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
+      typealias ReusableType = QHDetailViewCell
+
+      let bundle = R.hostingBundle
+      let identifier = "QHDetailViewCell"
+      let name = "QHDetailViewCell"
+
+      func firstView(owner ownerOrNil: AnyObject?, options optionsOrNil: [UINib.OptionsKey : Any]? = nil) -> QHDetailViewCell? {
+        return instantiate(withOwner: ownerOrNil, options: optionsOrNil)[0] as? QHDetailViewCell
+      }
+
+      fileprivate init() {}
+    }
+
     struct _QHIndexViewCell: Rswift.NibResourceType, Rswift.ReuseIdentifierType {
       typealias ReusableType = QHIndexViewCell
 

@@ -332,34 +332,64 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCY-c4-DeQ">
+                                <rect key="frame" x="188" y="537" width="38" height="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="R0p-jc-s8k">
+                                <rect key="frame" x="183" y="493" width="48" height="24"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="25" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="NvU-np-ftV">
+                                <rect key="frame" x="0.0" y="575" width="414" height="287"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="Qeu-ry-9dl" id="grU-Ef-gnT"/>
+                                </connections>
+                            </tableView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="tYq-gu-kXC"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="nCY-c4-DeQ" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="0CO-Ed-tLF"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="2WX-tv-qT4"/>
                             <constraint firstItem="ONW-AT-UIO" firstAttribute="top" secondItem="moW-Jt-85R" secondAttribute="bottom" constant="20" id="5WQ-eF-x85"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" id="66C-jd-XjZ"/>
                             <constraint firstItem="moW-Jt-85R" firstAttribute="top" secondItem="goe-4f-N6n" secondAttribute="bottom" constant="20" id="9FN-cF-2Ne"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="top" secondItem="NhC-Sk-cV2" secondAttribute="bottom" constant="20" id="9bV-Ze-hzQ"/>
+                            <constraint firstItem="NvU-np-ftV" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" id="Bch-ZD-C2B"/>
                             <constraint firstItem="moW-Jt-85R" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="C6O-3w-OVo"/>
+                            <constraint firstItem="nCY-c4-DeQ" firstAttribute="top" secondItem="R0p-jc-s8k" secondAttribute="bottom" constant="20" id="D2S-N9-8Hy"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="centerY" secondItem="iKQ-F7-4P9" secondAttribute="centerY" constant="-180" id="R9q-d6-s4U"/>
+                            <constraint firstItem="R0p-jc-s8k" firstAttribute="top" secondItem="ONW-AT-UIO" secondAttribute="bottom" constant="15" id="Vkv-7Y-CV6"/>
+                            <constraint firstItem="tYq-gu-kXC" firstAttribute="trailing" secondItem="NvU-np-ftV" secondAttribute="trailing" id="W4I-Sa-Hx0"/>
+                            <constraint firstItem="R0p-jc-s8k" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="YuK-FE-Wea"/>
                             <constraint firstItem="ONW-AT-UIO" firstAttribute="width" secondItem="moW-Jt-85R" secondAttribute="width" id="aoW-zJ-gUQ"/>
                             <constraint firstItem="goe-4f-N6n" firstAttribute="trailing" secondItem="tYq-gu-kXC" secondAttribute="trailing" id="ddd-fc-FlO"/>
                             <constraint firstItem="NhC-Sk-cV2" firstAttribute="leading" secondItem="tYq-gu-kXC" secondAttribute="leading" constant="20" id="dm2-aU-b1a"/>
+                            <constraint firstItem="NvU-np-ftV" firstAttribute="top" secondItem="nCY-c4-DeQ" secondAttribute="bottom" constant="20" id="k9q-t2-JRb"/>
                             <constraint firstItem="ONW-AT-UIO" firstAttribute="centerX" secondItem="iKQ-F7-4P9" secondAttribute="centerX" id="kN1-iP-y10"/>
                             <constraint firstItem="tYq-gu-kXC" firstAttribute="trailing" secondItem="NhC-Sk-cV2" secondAttribute="trailing" constant="20" id="mZ6-cD-lhU"/>
+                            <constraint firstItem="tYq-gu-kXC" firstAttribute="bottom" secondItem="NvU-np-ftV" secondAttribute="bottom" id="zAb-ht-JPC"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="costView" destination="ONW-AT-UIO" id="PeQ-th-TX5"/>
                         <outlet property="countView" destination="moW-Jt-85R" id="2gh-Pb-tKF"/>
+                        <outlet property="detailView" destination="nCY-c4-DeQ" id="Qc5-Gc-60V"/>
                         <outlet property="imageView" destination="goe-4f-N6n" id="0tO-Ug-OB1"/>
                         <outlet property="segmentedControl" destination="NhC-Sk-cV2" id="IhH-QW-qpz"/>
+                        <outlet property="titleView" destination="R0p-jc-s8k" id="6dx-qp-g8b"/>
+                        <outlet property="tradeView" destination="NvU-np-ftV" id="4K9-sE-uwm"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hc-By-WA0" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2668" y="-275"/>
+            <point key="canvasLocation" x="2666.666666666667" y="-275.22321428571428"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="YWk-ku-EkE">

@@ -9,7 +9,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 
-class QHHomeViewModel: QHViewModelType {
+final class QHHomeViewModel: QHViewModelType {
     let input: Input
     let output: Output
     
