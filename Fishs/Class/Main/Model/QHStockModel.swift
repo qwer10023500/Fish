@@ -164,7 +164,17 @@ extension QHStockModel {
         let id = array[0]
         let list = array[1].replacingOccurrences(of: "\"", with: "").replacingOccurrences(of: ";", with: "").components(separatedBy: "~")
         if id == "sh000001" || id == "sz399006" || id == "sz399001" {
-            stock = QHStockModel(id, mode: .index, name: list[1], price: list[3], fluctuation: String(format: "%@%%", list[32]), point: list[31])
+            stock = QHStockModel(id,
+                                 mode: .index,
+                                 name: list[1],
+                                 price: list[3],
+                                 fluctuation: String(format: "%@%%", list[32]),
+                                 point: list[31],
+                                 max: list[33],
+                                 min: list[34],
+                                 start: list[5],
+                                 yesterday: list[4]
+            )
         } else {
             stock = QHStockModel(id,
                                  mode: .stock,

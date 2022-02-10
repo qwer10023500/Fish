@@ -65,7 +65,7 @@ class QHDetailViewController: QHBaseViewController {
                 color = UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
             }
             self.detailView.textColor = color
-            self.detailView.text = String(format: "今开: %@ 最高: %@ 最低: %@", stock.price, stock.start, stock.max, stock.min)
+            self.detailView.text = String(format: "今开: %@ 最高: %@ 最低: %@", stock.start, stock.max, stock.min)
             let attributedText = NSMutableAttributedString()
             attributedText.append(NSAttributedString(string: String(format: "%@  %@  %@  ", stock.name, stock.price, stock.fluctuation), attributes: [
                 NSAttributedString.Key.font : UIFont.systemFont(ofSize: 20),
