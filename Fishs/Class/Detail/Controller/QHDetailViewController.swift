@@ -73,7 +73,7 @@ class QHDetailViewController: QHBaseViewController {
             ]))
             if let price = Double(stock.price), self.stock.cost != 0 && self.stock.count != 0 {
                 let count = Double(self.stock.count)
-                attributedText.append(NSAttributedString(string: String(format: "(总盈亏: %@)", QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - self.stock.cost) * count)) ?? String()), attributes: [
+                attributedText.append(NSAttributedString(string: String(format: "(总盈亏: %@,%.2f%%)", QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - self.stock.cost) * count)) ?? String(), (price / self.stock.cost - 1) * 100), attributes: [
                     NSAttributedString.Key.font : UIFont.systemFont(ofSize: 13),
                     NSAttributedString.Key.foregroundColor : price <= self.stock.cost ? UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1) : UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
                 ]))

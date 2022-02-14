@@ -30,10 +30,10 @@ class QHStockViewCell: UITableViewCell {
             
             if let price = Double(stock.price), stock.cost != 0 && stock.count != 0 {
                 let count = Double(stock.count)
-                incomeView.attributedText = NSAttributedString(string: String(format: "总盈亏: %@",
-                                                                              QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - stock.cost) * count)) ?? String()), attributes: [
-                                                                                  NSAttributedString.Key.foregroundColor : price <= stock.cost ? UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1) : UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
-                                                                              ])
+                let percentage = String(format: "%.2f%%", (price / stock.cost - 1) * 100)
+                incomeView.attributedText = NSAttributedString(string: String(format: "总盈亏: %@\n%@", QHConfiguration.numberFormatter.string(from: NSNumber(value: (price - stock.cost) * count)) ?? String(), percentage), attributes: [
+                    NSAttributedString.Key.foregroundColor : price <= stock.cost ? UIColor(red: 27 / 255.0, green: 180 / 255.0, blue: 134 / 255.0, alpha: 1) : UIColor(red: 241 / 255.0, green: 22 / 255.0, blue: 38 / 255.0, alpha: 1)
+                ])
             } else {
                 incomeView.attributedText = nil
             }
