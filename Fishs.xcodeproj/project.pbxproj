@@ -19,6 +19,7 @@
 		A06A9F132696DCC4008817FD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F122696DCC4008817FD /* Assets.xcassets */; };
 		A06A9F162696DCC4008817FD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A06A9F142696DCC4008817FD /* LaunchScreen.storyboard */; };
 		A084E844269D491B002A8253 /* QHDetailWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A084E843269D491A002A8253 /* QHDetailWebViewController.swift */; };
+		A0C875BD27C73CA80001D153 /* QHCLSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0C875BC27C73CA80001D153 /* QHCLSViewController.swift */; };
 		A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2332696DF82001DC990 /* QHNetwork.swift */; };
 		A0CEA2362696DF89001DC990 /* QHDomain.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2352696DF89001DC990 /* QHDomain.swift */; };
 		A0CEA2382696E142001DC990 /* QHPlugin.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0CEA2372696E142001DC990 /* QHPlugin.swift */; };
@@ -41,7 +42,7 @@
 		A0DD1D3A2698329900100907 /* QHStockTableHeaderViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */; };
 		A0DD1D3B2698329900100907 /* QHStockTableHeaderViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */; };
 		A0DD1D3D2698372B00100907 /* QHHomeTableHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */; };
-		A0DD1D43269851B600100907 /* QHNewsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D42269851B600100907 /* QHNewsViewController.swift */; };
+		A0DD1D43269851B600100907 /* QHTHSViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0DD1D42269851B600100907 /* QHTHSViewController.swift */; };
 		A0F02FFF27B4B456007937F6 /* QHDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F02FFE27B4B456007937F6 /* QHDetailViewModel.swift */; };
 		A0F0300227B4C4E9007937F6 /* QHDetailViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A0F0300027B4C4E9007937F6 /* QHDetailViewCell.swift */; };
 		A0F0300327B4C4E9007937F6 /* QHDetailViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A0F0300127B4C4E9007937F6 /* QHDetailViewCell.xib */; };
@@ -63,6 +64,7 @@
 		A06A9F152696DCC4008817FD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A06A9F172696DCC4008817FD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A084E843269D491A002A8253 /* QHDetailWebViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHDetailWebViewController.swift; sourceTree = "<group>"; };
+		A0C875BC27C73CA80001D153 /* QHCLSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHCLSViewController.swift; sourceTree = "<group>"; };
 		A0CEA2332696DF82001DC990 /* QHNetwork.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QHNetwork.swift; sourceTree = "<group>"; };
 		A0CEA2352696DF89001DC990 /* QHDomain.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QHDomain.swift; sourceTree = "<group>"; };
 		A0CEA2372696E142001DC990 /* QHPlugin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QHPlugin.swift; sourceTree = "<group>"; };
@@ -85,7 +87,7 @@
 		A0DD1D382698329900100907 /* QHStockTableHeaderViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHStockTableHeaderViewCell.swift; sourceTree = "<group>"; };
 		A0DD1D392698329900100907 /* QHStockTableHeaderViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHStockTableHeaderViewCell.xib; sourceTree = "<group>"; };
 		A0DD1D3C2698372B00100907 /* QHHomeTableHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHHomeTableHeaderView.swift; sourceTree = "<group>"; };
-		A0DD1D42269851B600100907 /* QHNewsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHNewsViewController.swift; sourceTree = "<group>"; };
+		A0DD1D42269851B600100907 /* QHTHSViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHTHSViewController.swift; sourceTree = "<group>"; };
 		A0F02FFE27B4B456007937F6 /* QHDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHDetailViewModel.swift; sourceTree = "<group>"; };
 		A0F0300027B4C4E9007937F6 /* QHDetailViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QHDetailViewCell.swift; sourceTree = "<group>"; };
 		A0F0300127B4C4E9007937F6 /* QHDetailViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = QHDetailViewCell.xib; sourceTree = "<group>"; };
@@ -346,7 +348,8 @@
 		A0DD1D41269851A600100907 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				A0DD1D42269851B600100907 /* QHNewsViewController.swift */,
+				A0DD1D42269851B600100907 /* QHTHSViewController.swift */,
+				A0C875BC27C73CA80001D153 /* QHCLSViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -510,7 +513,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A0CEA2472696E230001DC990 /* Defaults.swift in Sources */,
-				A0DD1D43269851B600100907 /* QHNewsViewController.swift in Sources */,
+				A0DD1D43269851B600100907 /* QHTHSViewController.swift in Sources */,
 				A0CEA2362696DF89001DC990 /* QHDomain.swift in Sources */,
 				A0CEA2462696E230001DC990 /* QHWebViewController.swift in Sources */,
 				A039A552279E9F490042AF38 /* QHTabBarController.swift in Sources */,
@@ -532,6 +535,7 @@
 				A084E844269D491B002A8253 /* QHDetailWebViewController.swift in Sources */,
 				A0CEA2342696DF82001DC990 /* QHNetwork.swift in Sources */,
 				A0DD1D33269807D700100907 /* QHDetailViewController.swift in Sources */,
+				A0C875BD27C73CA80001D153 /* QHCLSViewController.swift in Sources */,
 				A042EF1527B118E800341835 /* QHMoveViewCell.swift in Sources */,
 				A0F0300227B4C4E9007937F6 /* QHDetailViewCell.swift in Sources */,
 				A0CEA2432696E230001DC990 /* QHBaseViewController.swift in Sources */,

@@ -9,15 +9,10 @@ import UIKit
 import WebKit
 import MJRefresh
 
-class QHNewsViewController: QHWebViewController {
-
-    @IBOutlet weak var backItem: UIBarButtonItem!
+class QHTHSViewController: QHWebViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        webView.navigationDelegate = self
-        backItem.isEnabled = webView.canGoBack
         
         guard let url = URL(string: "https://m.10jqka.com.cn") else { return }
         webView.load(URLRequest(url: url))
@@ -37,13 +32,10 @@ class QHNewsViewController: QHWebViewController {
     }
     
     @IBAction func backAction(_ sender: UIBarButtonItem) {
-        webView.goBack()
-    }
-}
-
-// MARK: WKNavigationDelegate
-extension QHNewsViewController: WKNavigationDelegate {
-    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        backItem.isEnabled = webView.canGoBack
+        if webView.canGoBack {
+            webView.goBack()
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
     }
 }

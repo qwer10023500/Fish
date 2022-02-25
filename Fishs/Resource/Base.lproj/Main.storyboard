@@ -9,10 +9,78 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--News View Controller-->
+        <!--View Controller-->
+        <scene sceneID="Tr9-Im-Cih">
+            <objects>
+                <viewController id="F1U-YB-OTi" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="0l7-Ee-5OP">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8Cn-Nr-HPd">
+                                <rect key="frame" x="186" y="238" width="42.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="09V-hV-i89"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="cls"/>
+                                <connections>
+                                    <segue destination="hho-G2-5UE" kind="show" id="ZMt-NW-2cf"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="OQU-qL-gU5">
+                                <rect key="frame" x="185" y="438" width="44.5" height="50"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="50" id="dc5-Yg-MbH"/>
+                                </constraints>
+                                <state key="normal" title="Button"/>
+                                <buttonConfiguration key="configuration" style="plain" title="ths"/>
+                                <connections>
+                                    <segue destination="PG3-ny-sp2" kind="show" id="xOT-aW-5Uv"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="GFV-n9-OCr"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="8Cn-Nr-HPd" firstAttribute="centerX" secondItem="0l7-Ee-5OP" secondAttribute="centerX" id="YPT-PE-Kxh"/>
+                            <constraint firstItem="OQU-qL-gU5" firstAttribute="centerX" secondItem="0l7-Ee-5OP" secondAttribute="centerX" id="dH5-Qu-SlS"/>
+                            <constraint firstItem="8Cn-Nr-HPd" firstAttribute="top" secondItem="GFV-n9-OCr" secondAttribute="top" constant="150" id="lTW-E2-TIs"/>
+                            <constraint firstItem="OQU-qL-gU5" firstAttribute="top" secondItem="8Cn-Nr-HPd" secondAttribute="bottom" constant="150" id="x7c-S3-nt6"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="vKj-Nm-2zV"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nTY-1g-2Na" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1288" y="234"/>
+        </scene>
+        <!--View Controller-->
+        <scene sceneID="bVn-O0-l02">
+            <objects>
+                <viewController hidesBottomBarWhenPushed="YES" id="hho-G2-5UE" customClass="QHCLSViewController" customModule="Fishs" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="k13-Up-Wwi">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <viewLayoutGuide key="safeArea" id="sZ7-7A-RBh"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="aDD-WW-0ay">
+                        <barButtonItem key="leftBarButtonItem" title="back" id="4hS-EY-K5t">
+                            <connections>
+                                <action selector="backAction:" destination="hho-G2-5UE" id="mKm-Jp-U64"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="JmJ-87-OPR" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2667" y="418"/>
+        </scene>
+        <!--View Controller-->
         <scene sceneID="Nnb-1j-7Dg">
             <objects>
-                <viewController id="PG3-ny-sp2" customClass="QHNewsViewController" customModule="Fishs" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController hidesBottomBarWhenPushed="YES" id="PG3-ny-sp2" customClass="QHTHSViewController" customModule="Fishs" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="O6D-sm-eMg">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -26,13 +94,10 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="backItem" destination="AGt-Fg-zhM" id="Qje-u8-RsO"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WGR-fp-b5K" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1213.0434782608697" y="233.70535714285714"/>
+            <point key="canvasLocation" x="2635" y="1142"/>
         </scene>
         <!--Calculator-->
         <scene sceneID="mNi-hS-66J">
@@ -441,7 +506,7 @@
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="PG3-ny-sp2" kind="relationship" relationship="rootViewController" id="a03-lH-yxy"/>
+                        <segue destination="F1U-YB-OTi" kind="relationship" relationship="rootViewController" id="nHp-cS-Bev"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOG-h7-T4T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
