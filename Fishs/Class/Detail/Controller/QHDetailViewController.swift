@@ -133,7 +133,7 @@ extension QHDetailViewController {
     /** update stock */
     fileprivate func update() {
         guard UIApplication.shared.applicationState == .active else { return }
-        guard isTransactionTime(start: "09:30:00", end: "11:30:00") || isTransactionTime(start: "13:00:00", end: "15:00:30") else { return }
+        guard isTransactionTime(start: "09:15:00", end: "11:30:10") || isTransactionTime(start: "13:00:00", end: "15:00:30") else { return }
         Observable.just(()).delay(.milliseconds(15 * 100), scheduler: MainScheduler.instance).subscribe(onNext: { [weak self] _ in
             guard let `self` = self else { return }
             self.viewModel.input.detail.onNext(self.stock.id)
