@@ -23,8 +23,8 @@ final class QHHomeViewModel: QHViewModelType {
         let check: Driver<QHStockModel>
     }
     
-    fileprivate let stocksSubject = ReplaySubject<QHHomeModel>.create(bufferSize: 1)
-    fileprivate let checkSubject = ReplaySubject<String>.create(bufferSize: 1)
+    fileprivate let stocksSubject = PublishSubject<QHHomeModel>()
+    fileprivate let checkSubject = PublishSubject<String>()
     
     init() {
         let stocks = stocksSubject.flatMapLatest { home -> Observable<QHHomeModel> in
